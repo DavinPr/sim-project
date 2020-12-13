@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
                 ->onDelete('cascade');
             $table->string('username', 30)->unique();
             $table->string('password', 255);
+            $table->boolean('is_admin');
             $table->timestamps();
         });
     }

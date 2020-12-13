@@ -68,19 +68,10 @@
 
 <body>
     <div class="flex-center position-ref full-height">
-        @if (Route::has('login'))
         <div class="top-right links">
-            @auth
-            <a href="{{ url('/home') }}">Home</a>
-            @else
-            <a href="{{ route('login') }}">Login</a>
-
-            @if (Route::has('register'))
-            <a href="{{ route('register') }}">Register</a>
-            @endif
-            @endauth
+            <p>Halo, {{$admin->person_name}}</p>
+            <a href="{{route('logout')}}">Logout</a>
         </div>
-        @endif
 
         <div class="content">
             <div class="title m-b-md">
@@ -88,10 +79,10 @@
             </div>
 
             <div class="links">
-                <a href="/santri/add">Tambah Data Santri</a>
-                <a href="/santri/show">Lihat Data Santri</a>
-                <a href="https://laravel-news.com">Tambah Data Admin</a>
-                <a href="https://blog.laravel.com">Lihat Data Admin</a>
+                <a href="{{route('admin.add.santri.page')}}">Tambah Data Santri</a>
+                <a href="{{route('admin.show.santri.page')}}">Lihat Data Santri</a>
+                <a href="{{route('admin.show.admin.page')}}">Lihat Data Admin</a>
+                <a href="{{route('admin.add.admin.page')}}">Tambah Data Admin</a>
             </div>
         </div>
     </div>

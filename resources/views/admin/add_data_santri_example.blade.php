@@ -14,7 +14,7 @@
 
 <body>
     <div class="container mt-4">
-        <form method="POST" action="/santri/create">
+        <form method="POST" action="{{ route('admin.create.santri') }}">
             @csrf
             <div class="mb-3">
                 <label for="nis" class="form-label">NIS</label>

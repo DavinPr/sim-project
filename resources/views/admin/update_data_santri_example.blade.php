@@ -16,7 +16,7 @@
     <div class="container mt-4">
 
         <h3>Akun</h3>
-        <form method="POST" action="/student/update/user/{{$student->person->user->id}}">
+        <form method="POST" action="{{route('admin.update.santri.user', $student->person->user->id)}}">
             @method('put')
             @csrf
             <div class="mb-3">
@@ -25,7 +25,7 @@
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" , name="password" value="{{$student->password}}">
+                <input type="password" class="form-control" id="password" , name="password">
             </div>
             <div class="mb-3">
                 <button type="submit" class="btn btn-primary">Update</button>
@@ -34,7 +34,7 @@
 
 
         <h3 class="mt-5">Data diri</h3>
-        <form method="POST" action="/santri/update/person/{{$student->person->id}}">
+        <form method="POST" action="{{route('admin.update.santri.person', $student->person_id)}}">
             @method('put')
             @csrf
             <div class="mb-3">
@@ -64,7 +64,7 @@
 
 
         <h3 class="mt-5">Data santri</h3>
-        <form method="POST" action="/student/update/student/{{$student->id}}">
+        <form method="POST" action="{{route('admin.update.santri.student', $student->id)}}">
             @method('put')
             @csrf
             <div class="mb-3">

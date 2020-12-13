@@ -30,8 +30,6 @@
                     <th scope="col">Gender</th>
                     <th scope="col">SPP</th>
                     <th>Detail</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -45,14 +43,6 @@
                     <td>{{$student->person->person_gender}}</td>
                     <td>{{$student->spp}}</td>
                     <td><a href="/santri/{{$student->id}}">Click</a></td>
-                    <td><a href="/santri/update/{{$student->id}}">Click</a></td>
-                    <td>
-                        <form action="/santri/{{$student->id}}" method="POST">
-                            @method('delete')
-                            @csrf
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
-                    </td>
                 </tr>
                 @endforeach
             </tbody>

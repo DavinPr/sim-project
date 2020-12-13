@@ -2,14 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Person;
-use App\Student;
-use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\User;
+use App\Person;
 
-class StudentController extends Controller
+class AdminController extends Controller
 {
+
+    public function studentToAdmin($id)
+    {
+        User::where('id', $id)
+            ->update([
+                'is_admin' => 1
+            ]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -17,11 +24,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = Student::all();
-        if (Auth::user()->is_admin) {
-            return view('admin.show_data_santri_example', compact('students'));
-        }
-        return view('santri.show_data_santri_example', compact('students'));
+        $admins = User::where('is_admin', 1)->get();
+        return view('admin.show_data_admin_example', compact('admins'));
     }
 
     /**
@@ -42,16 +46,14 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-
         //Validation
         $request->validate([
-            'nis' => 'required|max:50',
+            'username' => 'required|max:50',
             'person_name' => 'required|max:50',
             'person_birthdate' => 'required',
             'person_birthplace' => 'required',
             'person_gender' => 'required',
-            'password' => 'required|min:6',
-            'spp' => 'required'
+            'password' => 'required|min:6'
         ]);
 
         //Insert personal data
@@ -68,67 +70,59 @@ class StudentController extends Controller
 
         //Insert data user for login
         $user = new User([
-            'username' => $request->nis,
+            'username' => $request->username,
             'password' => bcrypt($request->password),
-            'is_admin' => 0
+            'is_admin' => 1
         ]);
         $person->user()->save($user);
 
-        //Insert data student
-        $student = new Student([
-            'nis' => $request->nis,
-            'spp' => $request->spp
-        ]);
-        $person->student()->save($student);
-
-        return redirect(route('admin.show.santri.page'))->with('status', 'Data Santri Berhasil Ditambahkan!');
+        return redirect(route('admin.show.admin.page'))->with('status', 'Data Admin Berhasil Ditambahkan!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Student  $student
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Student $student)
+    public function show($id)
     {
-        if (Auth::user()->is_admin) {
-            return view('admin.detail_santri_example', compact('student'));
-        }
-        return view('santri.detail_santri_example', compact('student'));
+        $user = User::where('id', $id)->first();
+        return view('admin.detail_admin_example', compact('user'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Student  $student
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Student $student)
+    public function edit($id)
     {
-        return view('admin.update_data_santri_example', compact('student'));
+        $user = User::where('id', $id)->first();
+        return view('admin.update_data_admin_example', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Student  $student
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Student $student)
+    public function update(Request $request, $id)
     {
         //Validation
         $request->validate([
-            'spp' => 'required'
+            'password' => 'required|min:6'
         ]);
 
-        //Update data student
-        Student::where('id', $student->id)
+        //Update data user
+        User::where('id', $id)
             ->update([
-                'spp' => $request->spp
+                'password' => bcrypt($request->password)
             ]);
-        return redirect(route('admin.show.santri.page'))->with('status', 'Data Santri Berhasil Diubah!');
+        return redirect(route('admin.show.admin.page'))->with('status', 'Data Admin Berhasil Diubah!');
     }
 
     public function updatePerson(Request $request, $id)
@@ -149,35 +143,18 @@ class StudentController extends Controller
                 'person_gender' => $request->person_gender,
                 'person_avatar' => $request->person_avatar
             ]);
-
-        return redirect('/santri/show')->with('status', 'Data Santri Berhasil Diubah!');
-    }
-
-    public function updateUser(Request $request, $id)
-    {
-        //Validation
-        $request->validate([
-            'password' => 'required|min:6'
-        ]);
-
-        //Update data user for login
-        User::where('id', $id)
-            ->update([
-                'password' => bcrypt($request->password)
-            ]);
-
-        return redirect('/santri/show')->with('status', 'Data Santri Berhasil Diubah!');
+        return redirect(route('admin.show.admin.page'))->with('status', 'Data Admin Berhasil Diubah!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Student  $student
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Student $student)
+    public function destroy($id)
     {
-        Person::destroy($student->person->id);
-        return redirect('/santri/show')->with('status', 'Data Santri Berhasil Dihapus!');
+        Person::destroy($id);
+        return redirect(route('admin.show.admin.page'))->with('status', 'Data Admin Berhasil Dihapus!');
     }
 }

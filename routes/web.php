@@ -25,11 +25,14 @@ Route::group([
     //Route to admin homepage
     Route::get('admin/homepage', 'PagesController@admin_home')->name('admin.homepage');
 
-    //Route to add data santri page for admin
-    Route::get('admin/santri/add', 'PagesController@admin_add_santri')->name('admin.add.santri.page');
+    //Route to admin list for admin
+    Route::get('admin/admin/show', 'AdminController@index')->name('admin.show.admin.page');
 
     //Route to santri list for admin
     Route::get('admin/santri/show', 'StudentController@index')->name('admin.show.santri.page');
+
+    //Route to add data santri page for admin
+    Route::get('admin/santri/add', 'PagesController@admin_add_santri')->name('admin.add.santri.page');
 
     //Route to santri detail for admin
     Route::get('admin/santri/{student}', 'StudentController@show')->name('admin.detail.santri');
@@ -39,9 +42,6 @@ Route::group([
 
     //Route to add data admin page for admin
     Route::get('admin/admin/add', 'PagesController@admin_add_admin')->name('admin.add.admin.page');
-
-    //Route to admin list for admin
-    Route::get('admin/admin/show', 'AdminController@index')->name('admin.show.admin.page');
 
     //Route to add data admin
     Route::post('admin/create', 'AdminController@store')->name('admin.create.admin');

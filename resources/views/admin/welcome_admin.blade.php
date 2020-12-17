@@ -104,25 +104,22 @@
                     <div class="row">
                         <div class="col-8">
                             <h2>Beranda</h2>
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <a class="itemlist" href="{{route('admin.show.admin.page')}}">
+                                        <div class="item"> <a class="itemlist" href="{{route('admin.show.admin.page')}}">
 
                                             <span class="icon fas fa-user"></span>
                                             Data Admin
 
-                                        </a>
+                                        </a></div>
+                                       
 
-                                    </div>
-                                    <div class="col-6">
-                                        <a class="itemlist" href="{{route('admin.show.santri.page')}}">
+                                        <div class="item"> <a class="itemlist" href="{{route('admin.show.santri.page')}}">
 
                                             <span class="icon fas fa-list-alt"></span>
                                             Data Santri
 
-                                        </a>
-                                    </div>
+                                        </a></div>
+                                       
+                                
 
                                 </div>
                             </div>

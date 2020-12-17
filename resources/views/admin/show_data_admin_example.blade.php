@@ -77,6 +77,7 @@
 
             <div class="col-9 main-wrapper">
                 <div class="container">
+                    <br>
                     <ul class="nav justify-content-end nav-top">
                         <li class="nav-item">
                             <a class="nav-link active" href="#">
@@ -97,7 +98,7 @@
                     </ul>
                 </div>
 
-                <div class="container list-santri">
+                <div class="container content-item">
                     @if (session('status'))
                     <div class="alert alert-success">
                         {{ session('status') }}
@@ -106,13 +107,9 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
+                                <th scope="col">No</th>
                                 <th scope="col">Username</th>
                                 <th scope="col">Nama</th>
-                                <th scope="col">Tanggal lahir</th>
-                                <th scope="col">Tempat lahir</th>
-                                <th scope="col">Gender</th>
-                                <th>Detail</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
                             </tr>
@@ -121,12 +118,10 @@
                             @foreach($admins as $admin)
                             <tr>
                                 <th scope="row">{{ $loop->iteration }}</th>
-                                <td>{{$admin->username}}</td>
+                                <td><a href="{{route('admin.detail.admin', $admin->id)}}">{{$admin->username}}</a></td>
                                 <td>{{$admin->person->person_name}}</td>
-                                <td>{{$admin->person->person_birthdate}}</td>
-                                <td>{{$admin->person->person_birthplace}}</td>
-                                <td>{{$admin->person->person_gender}}</td>
-                                <td><a href="{{route('admin.detail.admin', $admin->id)}}">Click</a></td>
+                               
+                               
                                 <td><a href="{{route('admin.edit.admin', $admin->id)}}">Click</a></td>
                                 <td>
                                     <form action="/admin/{{$admin->person_id}}" method="POST">

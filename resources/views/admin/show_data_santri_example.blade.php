@@ -93,7 +93,7 @@
                     </ul>
                 </div>
 
-                <div class="container list-santri">
+                <div class="container content-item">
                     @if (session('status'))
                     <div class="alert alert-success">
                         {{ session('status') }}

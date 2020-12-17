@@ -1,16 +1,20 @@
 body{
-    background-color: #ccc;
+    background-color: #eee;
 }
 .wrapper {
-    margin-top: 150px;
-    width: 350px;
-    height: 400px;
-    background-color: #2f3e46ee;
-    color: #eee;
-    padding: 50px;
-    border-radius: 20px;
+    margin-top: 100px;
+    width: 600px;
+    height: auto;
+    background-color: #fff;
+    color: rgb(124, 124, 124);
+    padding: 20px;
+    border-radius: 50px;
     box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1),
     0 0 0 1px rgba(10, 10, 10, 0.02);
+    box-sizing: border-box;
+    overflow: hidden;
+    
+
 }
 
 .btn{
@@ -30,3 +34,27 @@ body{
 .form-label {
     font-weight: 600;
 }
+
+.logo img{
+    
+    height: 60%;
+    width: 60%;
+    padding: 100px 0; 
+   
+}
+
+.kanan{
+    padding: 50px 50px;
+    box-sizing: border-box;
+}
+.kiri{
+    background-color: #313e44;
+    border-radius: 0 50px 50px 0;
+    box-sizing: border-box;
+    
+}
+
+.container {
+    padding: 0;
+}
+

@@ -8,7 +8,7 @@ a:hover{
     height: 800px;
 }
 .sidebar{
-    height: 800px;
+    min-height: 800px;
     background-color: #2f3e46;
 }
 .logo img{
@@ -63,16 +63,23 @@ a:hover{
 }
 
 .main-wrapper{
-    background-color: #e6ebe3;
+    background-color: #f0f0f0;
 }
-
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
 .nav-top {
-    margin-top: 20px;
+    margin-top: 5px;
 }
 
 .nav-top a{
     font-size: 18px;
     color:#757575;
+}
+.nav-p{
+    margin-top: 20px;
 }
 
 .nav-icon {
@@ -88,7 +95,7 @@ a:hover{
 }
 
 .nav-link{
-    padding: 4px 8px;
+    padding: 2px 2px;
 }
 
 .profileSum{
@@ -110,11 +117,63 @@ a:hover{
 }
 
 .list-santri{
-    width: 80%;
-    height: 400px;
+    width: 90%;
+    height: auto;
     background-color: #fff;
-    margin: 20px;
+    margin: 20px auto;
     border-radius: 20px;
     box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1),
     0 0 0 1px rgba(10, 10, 10, 0.02);
+    padding: 20px;
 }
+
+.list-santri thead{
+    border: 0;
+    background-color: #2f3e46;
+    color: #eee;
+}
+
+
+.itemlist{
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1),
+    0 0 0 1px rgba(10, 10, 10, 0.02);
+    padding: 30px 40px;
+    margin-top: 100px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #666;
+    line-height: 50%;
+}
+
+.itemlist .icon{
+    margin: 0;
+    font-size: 32px;
+    width: auto;
+    vertical-align: middle;
+    color: #666;
+    background-color: #eee;
+    padding: 8px 6px;
+    border-radius: 10px;
+    margin-right: 10px;
+
+}
+ .content h2{
+     margin: 0 0 50px 10px;
+     color: #666;
+     font-size: 24px;
+ }
+
+ .content .row{
+     margin-left: 0;
+     padding-left:0 ;
+ }
+
+ .transaksi{
+     margin-top: 100px;
+ }
+ .btn-primary{
+     width: 100%;
+ }
+

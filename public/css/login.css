@@ -1,0 +1,32 @@
+body{
+    background-color: #ccc;
+}
+.wrapper {
+    margin-top: 150px;
+    width: 350px;
+    height: 400px;
+    background-color: #2f3e46ee;
+    color: #eee;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1),
+    0 0 0 1px rgba(10, 10, 10, 0.02);
+}
+
+.btn{
+    width: 100%;
+}
+.btn-login{
+    background-color: #313e44;
+    border-color: #4a4f56;
+    color: #eee;
+}
+.btn-login:hover{
+    background-color: #273135;
+    
+    color: #fff;
+}
+
+.form-label {
+    font-weight: 600;
+}

@@ -9,11 +9,13 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="/css/login.css">
+
     <title>Hello, world!</title>
 </head>
 
 <body>
-    <div class="container mt-4">
+    <div class="container wrapper">
         @if (session('invalid'))
         <div class="alert alert-danger">
             {{ session('invalid') }}
@@ -34,7 +36,8 @@
                 <label for="password" class="form-label">Password</label>
                 <input type="password" class="form-control" id="password" name="password">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <center><button type="submit" class="btn btn-login">Log in</button></center>
+            
         </form>
     </div>
 </body>

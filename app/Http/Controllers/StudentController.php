@@ -18,10 +18,11 @@ class StudentController extends Controller
     public function index()
     {
         $students = Student::all();
+        $user_auth = Auth::user();
         if (Auth::user()->is_admin) {
-            return view('admin.show_data_santri_example', compact(["student", "user_auth"]));
+            return view('admin.show_data_santri_example', compact(["students", "user_auth"]));
         }
-        return view('santri.show_data_santri_example', compact(["student", "user_auth"]));
+        return view('santri.show_data_santri_example', compact(["students", "user_auth"]));
     }
 
     /**

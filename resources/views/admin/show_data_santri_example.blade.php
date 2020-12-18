@@ -77,6 +77,7 @@
 
             <div class="col-9 main-wrapper">
                 <div class="container">
+                <p class='nav justify-content-end nav-p'> Halo, {{$user_auth->person->person_name}}</p> 
                     <ul class="nav justify-content-end nav-top">
                         <li class="nav-item">
                             <a class="nav-link active" href="#">
@@ -105,13 +106,10 @@
                                 <th scope="col">#</th>
                                 <th scope="col">NIS</th>
                                 <th scope="col">Nama</th>
-                                <th scope="col">Tanggal lahir</th>
-                                <th scope="col">Tempat lahir</th>
                                 <th scope="col">Gender</th>
                                 <th scope="col">SPP</th>
-                                <th>Detail</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
+                                <th colspan="3"></th>
+                                
                             </tr>
                         </thead>
                         <tbody>
@@ -120,17 +118,16 @@
                                 <th scope="row">{{ $loop->iteration }}</th>
                                 <td>{{$student->nis}}</td>
                                 <td>{{$student->person->person_name}}</td>
-                                <td>{{$student->person->person_birthdate}}</td>
-                                <td>{{$student->person->person_birthplace}}</td>
                                 <td>{{$student->person->person_gender}}</td>
                                 <td>{{$student->spp}}</td>
-                                <td><a href="{{route('admin.detail.santri', $student->id)}}">Click</a></td>
-                                <td><a href="{{route('admin.edit.santri', $student->id)}}">Click</a></td>
+                                <td><a href="{{route('admin.detail.santri', $student->id)}}"> <i class="icon fas fa-info-circle"></i></a></td>
+                                <td><a href="{{route('admin.edit.santri', $student->id)}}"> <i class="icon fas fa-edit"></i></a></td>
+                    
                                 <td>
                                     <form action="/santri/{{$student->id}}" method="POST">
                                         @method('delete')
                                         @csrf
-                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                        <button type="submit" class="btn-none"> <i class="icon fas fa-trash-alt" type="submit"></i></button>
                                     </form>
                                 </td>
                             </tr>

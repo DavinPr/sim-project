@@ -20,6 +20,7 @@
     <div class="container wrapper">
         <div class="row">
             <div class="col-6 kiri">
+                <div class="judul">Sistem Pembayaran Pondok Pesantren Al-Munawwir Komplek L</div>
                 <div class="logo d-flex justify-content-center">
                     <img src="/img/logo.png" alt="" srcset="">
                 </div>
@@ -42,7 +43,7 @@
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="mb-3">
-                        <label for="username" class="form-label">Username</label>
+                        <label for="username" class="form-label">NIS</label>
                         <input type="text" class="form-control" id="username" name="username">
                     </div>
                     <div class="mb-3">

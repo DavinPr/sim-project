@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Sistem Pembayaran Pondok Pesantren</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
@@ -101,9 +101,10 @@
                 </div>
 
                 <div class="container content">
+                <h2>Beranda</h2>
                     <div class="row">
                         <div class="col-8">
-                            <h2>Beranda</h2>
+                           
                                         <div class="item"> <a class="itemlist" href="{{route('admin.show.admin.page')}}">
 
                                             <span class="icon fas fa-user"></span>
@@ -112,13 +113,13 @@
                                         </a></div>
                                        
 
-                                        <div class="item"> <a class="itemlist" href="{{route('admin.show.santri.page')}}">
+                                        <div class="item"></div>
+                                        <a class="itemlist" href="{{route('admin.show.santri.page')}}">
 
                                             <span class="icon fas fa-list-alt"></span>
                                             Data Santri
 
-                                        </a></div>
-                                       
+                                        </a>
                                 
 
                                 </div>
@@ -126,7 +127,7 @@
 
 
                         </div>
-                        <div class="container">
+                        <div class="container content">
                             <div class="transaksi">
                                 <h2>Transaksi Terbaru</h2>
                             </div>

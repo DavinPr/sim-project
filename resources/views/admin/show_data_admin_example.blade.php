@@ -77,7 +77,6 @@
 
             <div class="col-9 main-wrapper">
                 <div class="container">
-                    <br>
                     <ul class="nav justify-content-end nav-top">
                         <li class="nav-item">
                             <a class="nav-link active" href="#">
@@ -110,8 +109,8 @@
                                 <th scope="col">No</th>
                                 <th scope="col">Username</th>
                                 <th scope="col">Nama</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
+                                <th colspan="3"></th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -121,13 +120,14 @@
                                 <td><a href="{{route('admin.detail.admin', $admin->id)}}">{{$admin->username}}</a></td>
                                 <td>{{$admin->person->person_name}}</td>
                                
-                               
-                                <td><a href="{{route('admin.edit.admin', $admin->id)}}">Click</a></td>
+                                <td><a href="{{route('admin.detail.admin', $admin->id)}}"> <i class="icon fas fa-info-circle"></i></a></td>
+                                <td><a href="{{route('admin.edit.admin', $admin->id)}}"> <i class="icon fas fa-edit"></i></a></td>
+                    
                                 <td>
                                     <form action="/admin/{{$admin->person_id}}" method="POST">
                                         @method('delete')
                                         @csrf
-                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                        <button type="submit" class="btn-none"> <i class="icon fas fa-trash-alt" type="submit"></i></button>
                                     </form>
                                 </td>
                             </tr>

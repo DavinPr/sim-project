@@ -39,7 +39,7 @@ body{
     
     height: 60%;
     width: 60%;
-    padding: 100px 0; 
+    padding: 20px 0 50px 0; 
    
 }
 
@@ -56,5 +56,13 @@ body{
 
 .container {
     padding: 0;
+}
+
+.judul{
+    text-align: center;
+    padding: 40px 15px 5px 15px;
+    font-size: 16px;
+    color: #eee;
+    font-weight: 600;
 }
 

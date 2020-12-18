@@ -165,10 +165,13 @@ a:hover{
     margin-right: 10px;
 
 }
+
+h2 {
+    font-size: 24px;
+    color: #666;
+}
  .content h2{
      margin: 0 0 50px 10px;
-     color: #666;
-     font-size: 24px;
  }
 
  .content .row{
@@ -192,3 +195,21 @@ a:hover{
     color: #fff;
 }
 
+.btn-none{
+    border: 0;
+    background: 0;
+}
+
+table .icon{
+    margin: 0;
+}
+
+.fa-info-circle{
+    color: #273135;
+}
+.fa-edit{
+    color: #5466b8;
+}
+.fa-trash-alt{
+    color: #b85472;
+}

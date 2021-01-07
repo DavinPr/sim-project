@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Admin;
 use Illuminate\Http\Request;
 use App\User;
 use App\Person;
@@ -76,6 +77,9 @@ class AdminController extends Controller
         ]);
         $person->user()->save($user);
 
+        $admin = new Admin();
+        $person->admin()->save($admin);
+
         return redirect(route('admin.show.admin.page'))->with('status', 'Data Admin Berhasil Ditambahkan!');
     }
 
@@ -98,10 +102,10 @@ class AdminController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    
 
 
-   
+
+
     public function edit($id)
     {
         $user = User::where('id', $id)->first();
@@ -163,11 +167,6 @@ class AdminController extends Controller
         return redirect(route('admin.show.admin.page'))->with('status', 'Data Admin Berhasil Dihapus!');
     }
 
-    public function transaksi()
-    {
-        return view('admin.show_data_trasaksi');
-    }
-
     public function detailTransaksi()
     {
         return view('admin.detail_transaksi');
@@ -177,7 +176,4 @@ class AdminController extends Controller
     {
         return view('admin.verifikasi');
     }
-
-    
-    
 }

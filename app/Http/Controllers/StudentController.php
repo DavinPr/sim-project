@@ -182,14 +182,4 @@ class StudentController extends Controller
         Person::destroy($student->person->id);
         return redirect('/santri/show')->with('status', 'Data Santri Berhasil Dihapus!');
     }
-
-    public function pembayaran()
-    {
-        return view('santri.pembayaran');
-    }
-
-    public function transaksi()
-    {
-        return view('santri.show_data_transaksi');
-    }
 }

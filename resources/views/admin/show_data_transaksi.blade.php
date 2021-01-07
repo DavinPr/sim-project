@@ -33,7 +33,7 @@
 
                         <ul class="menus-block">
                             <li>
-                                <a class="menu-link" href="{{route('santri.homepage')}}">
+                                <a class="menu-link" href="{{route('admin.homepage')}}">
                                     <span class="icon fas fa-home"></span>
                                     Beranda
                                 </a>
@@ -45,9 +45,16 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="menu-link" href="#">
+                                <a class="menu-link" href="{{route('admin.show.transaksi')}}">
                                     <span class="icon fas fa-history"></span>
                                     Transaksi
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="menu-link" href="#">
+                                    <span class="icon fas fa-check-square"></span>
+                                    Verifikasi
                                 </a>
                             </li>
 
@@ -69,6 +76,7 @@
 
             <div class="col-9 main-wrapper">
                 <div class="container">
+                    <p class='nav justify-content-end nav-p'> </p>
                     <ul class="nav justify-content-end nav-top">
                         <li class="nav-item">
                             <a class="nav-link active" href="#">
@@ -85,51 +93,43 @@
                     </ul>
                 </div>
 
-                <div class="container content-item">
-                    <div class="container mt-4">
-                        <h1>Pembayaran</h1>
-                        <br>
-                        @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                        @endif
-                        <br>
-                        <form method="POST" action="{{ route('santri.pembayaran', $user_auth->person->student->id) }}">
-                            @csrf
-                            <div class="mb-3">
-                                <label for="fee" class="form-label">Jumlah Nominal</label>
-                                <input type="number" class="form-control" id="fee" name="fee">
-                            </div>
-                            <div class="mb-3">
-                                <div class="form-group">
-                                    <label for="category">Pilih Jenis Pembayaran</label>
-                                    <select class="form-control" id="category" name="category">
-                                        <option selected>- Pilih -</option>
-                                        <option value="SPP">SPP</option>
-                                        <option value="Kas">Kas</option>
-                                        <option value="Daftar Ulang">Daftar Ulang</option>
-                                        <option value="Sumbangan">Sumbangan</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="avatar">Upload Bukti Pembayaran</label>
-                                <br>
-                                <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
+                <div class="container">
+                    <h2>Transaksi Santri</h2>
+                    <div class="content-item">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">No. Transaksi</th>
+                                    <th scope="col">Tanggal</th>
+                                    <th scope="col">Keterangan</th>
+                                    <th scope="col">Jumlah</th>
+                                    <th scope="col">Status</th>
 
-                            </div>
 
-                            <div class="mb-3">
-                                <button type="submit" class="btn btn-primary">Kirim</button>
-                            </div>
-                        </form>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach($transactions->take(3) as $transaction)
+                                <tr>
+                                    <th scope="row"><a href="{{route('admin.detail.transaksi')}}">{{$transaction->transaction_invoice}}</a></th>
+                                    <td>{{$transaction->created_at}}</td>
+                                    <td>{{$transaction->transaction_category}}</td>
+                                    <td>{{$transaction->transaction_fee}}</td>
+                                    <td @if($transaction->transaction_status == 'Belum diverifikasi') class="pending" @else class="sukses" @endif>{{$transaction->transaction_status}}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
+
 
                 </div>
 
             </div>
+
         </div>
+    </div>
 </body>
 
 </html>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Transaction;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -16,7 +17,8 @@ class PagesController extends Controller
     public function admin_home()
     {
         $admin = Auth::user()->person;
-        return view('admin.welcome_admin', compact('admin'));
+        $transactions = Transaction::where('transaction_status', 'Belum diverifikasi')->get();
+        return view('admin.welcome_admin', compact(['admin', 'transactions']));
     }
 
     public function admin_add_santri()

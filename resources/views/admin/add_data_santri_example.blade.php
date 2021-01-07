@@ -93,7 +93,7 @@
                     </ul>
                 </div>
 
-                <div class="container list-santri">
+                <div class="container content-item">
                     <div class="container mt-4">
                         <form method="POST" action="{{ route('admin.create.santri') }}">
                             @csrf

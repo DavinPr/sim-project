@@ -101,7 +101,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{route('logout')}}">Logout</a>
+                                <a href="{{route('logout')}}"><span class="nav-icon fas fa-sign-out-alt"></span></a>
                             </li>
 
                         </ul>

@@ -107,27 +107,27 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{route('logout')}}">Logout</a>
+                            <a href="{{route('logout')}}"><span class="nav-icon fas fa-sign-out-alt"></span></a>
                             </li>
 
                         </ul>
                     </div>
 
                     <div class="container content">
-                        <div class="container content-item">
-                            <ul class="list-group">
-                                <li class="list-group-item">Nomer Transaksi = #777 </li>
-                                <li class="list-group-item">Bukti Transaksi = Lihat</li>
-                                <li class="list-group-item">Tanggal Transaksi = 1 Januari 2021 </li>
-                                <li class="list-group-item">Pembayaran = SPP</li>
+                        <div class="container content-item content-list">
+                        <h2>Verifikasi Pembayaran</h2>
+                        <P> <b>Nomer Transaksi</b>  = #777 </P>
+                        <p> <b>Tanggal Transaksi</b>  = 1 Januari 2021 </p>
+                        <p> <b>Pembayaran</b>  = SPP</p>
+                        <p> <b>Nama Santri</b>  = Hanif Amiruddiin</p> 
+                        <p> <b>Bukti Transaksi</b>  = Lihat</p> 
 
-                                <!-- Accessing table person from table student -->
-                                <li class="list-group-item">Nama Santri = Hanif Amiruddiin</li>
+                        <br>
+                        <br>
 
-                                <!-- Accessing table user from table student -->
-                               
-                               
-                            </ul>
+                        <button type="button" class="btn btn-success">Terima</button>  
+                        <button type="button" class="btn btn-danger">Tolak</button>                              
+                                
                         </div>
                     </div>
 

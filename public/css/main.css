@@ -221,10 +221,23 @@ table .icon{
 }
 
 .pending{
+    color: rgb(202, 166, 68);
+    font-weight: 600;
+}
+
+.gagal{
     color: rgb(202, 68, 68);
     font-weight: 600;
 }
 
 tr:hover{
     background-color: rgb(250, 248, 248);
+}
+
+.content-list{
+    padding: 50px 100px ;
+}
+
+.content-list p{
+    margin: 0;
 }

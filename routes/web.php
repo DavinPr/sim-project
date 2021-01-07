@@ -75,6 +75,17 @@ Route::group([
 
     //Route to logout
     Route::get('logout', 'authentication\LoginController@logout')->name('logout');
+
+    //Route to data transaksi
+    Route::get('admin/transaksi/show','AdminController@transaksi')->name('admin.show.transaksi');
+
+    //Route to detail transaksi
+    Route::get('admin/transaksi/detail','AdminController@detailTransaksi')->name('admin.detail.transaksi');
+
+     //Route to verifikasi
+    Route::get('admin/transaksi/verifikasi','AdminController@verifikasi')->name('admin.verifikasi');
+
+    
 });
 
 
@@ -92,4 +103,10 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Route to logout
     Route::get('logout', 'authentication\LoginController@logout')->name('logout');
+
+    //Route to add pembayaran
+    Route::get('santri/pembayaran','StudentController@pembayaran')->name('santri.pembayaran');
+
+    //Route to add pembayaran
+    Route::get('santri/transaksi','StudentController@transaksi')->name('santri.transaksi');
 });

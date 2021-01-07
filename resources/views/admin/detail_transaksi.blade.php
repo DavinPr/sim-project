@@ -45,48 +45,54 @@
                     </div>
 
                     <div class="container">
-                        <div class="menus">
+                    <div class="menus">
 
-                            <ul class="menus-block">
-                                <li>
-                                    <a class="menu-link" href="#">
-                                        <span class="icon fas fa-home"></span>
-                                        Beranda
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="menu-link" href="#">
-                                        <span class="icon fas fa-user-circle"></span>
-                                        Akun
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="menu-link" href="#">
-                                        <span class="icon fas fa-history"></span>
-                                        Transaksi
-                                    </a>
-                                </li>
+                        <ul class="menus-block">
+                            <li>
+                                <a class="menu-link" href="{{route('admin.homepage')}}">
+                                    <span class="icon fas fa-home"></span>
+                                    Beranda
+                                </a>
+                            </li>
+                            <li>
+                                <a class="menu-link" href="#">
+                                    <span class="icon fas fa-user-circle"></span>
+                                    Akun
+                                </a>
+                            </li>
+                            <li>
+                                <a class="menu-link" href="{{route('admin.show.transaksi')}}">
+                                    <span class="icon fas fa-history"></span>
+                                    Transaksi
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="menu-link" href="#">
+                                    <span class="icon fas fa-check-square"></span>
+                                    Verifikasi
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="menu-link" href="#">
+                                    <span class="icon fas fa-file-alt"></span>
+                                    Laporan
+                                </a>
+                            </li>
 
 
-                                <li>
-                                    <a class="menu-link" href="#">
-                                        <span class="icon fas fa-file-alt"></span>
-                                        Laporan
-                                    </a>
-                                </li>
 
+                        </ul>
 
-
-                            </ul>
-
-                        </div>
                     </div>
+                </div>
                 </div>
 
 
                 <div class="col-9 main-wrapper">
                     <div class="container">
-                        <p class='nav justify-content-end nav-p'> Halo, {{$user_auth->person->person_name}}</p>
+                        <p class='nav justify-content-end nav-p'> </p>
                         <ul class="nav justify-content-end nav-top">
 
                             <li class="nav-item">
@@ -110,11 +116,17 @@
                     <div class="container content">
                         <div class="container content-item">
                             <ul class="list-group">
-                                <li class="list-group-item">Invoice = {{$transaction->transaction_invoice}}</li>
-                                <li class="list-group-item">Fee = {{$transaction->transaction_fee}}</li>
+                                <li class="list-group-item">Nomer Transaksi = #777 </li>
+                                <li class="list-group-item">Bukti Transaksi = Lihat</li>
+                                <li class="list-group-item">Tanggal Transaksi = 1 Januari 2021 </li>
+                                <li class="list-group-item">Pembayaran = SPP</li>
 
-                                <li class="list-group-item">Proof = {{$transaction->transaction_proof}}</li>
-                                <li class="list-group-item">Status = {{$transaction->transaction_status}}</li>
+                                <!-- Accessing table person from table student -->
+                                <li class="list-group-item">Nama Santri = Hanif Amiruddiin</li>
+
+                                <!-- Accessing table user from table student -->
+                               
+                               
                             </ul>
                         </div>
                     </div>

@@ -18,7 +18,6 @@
 
 <body>
 
-
     <div class="container-fluid wrapper">
         <div class="row">
 
@@ -34,7 +33,7 @@
 
                         <ul class="menus-block">
                             <li>
-                                <a class="menu-link" href="#">
+                                <a class="menu-link" href="{{route('santri.homepage')}}">
                                     <span class="icon fas fa-home"></span>
                                     Beranda
                                 </a>
@@ -71,9 +70,8 @@
 
             <div class="col-9 main-wrapper">
                 <div class="container">
-                    <p class='nav justify-content-end nav-p'> Halo, {{$student->person->person_name}}</p>
+                    <p class='nav justify-content-end nav-p'> </p>
                     <ul class="nav justify-content-end nav-top">
-
                         <li class="nav-item">
                             <a class="nav-link active" href="#">
                                 <span class="nav-icon fas fa-bell"></span>
@@ -85,68 +83,42 @@
                                 <span class="nav-icon fas fa-cog"></span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{route('logout')}}">Logout</a>
-                        </li>
 
                     </ul>
                 </div>
 
-                <div class="container content">
-
-                    <h2>Beranda</h2>
-                    <div class="item">
-                        <a class="itemlist" href="{{ route('santri.pembayaran') }}">
-                            <span class="icon fas fa-file-invoice"></span>
-                            Pembayaran
-                        </a>
-                    </div>
-
-                </div>
                 <div class="container">
-                    <div class="transaksi">
-                        <h2>Riwayat Transaksi</h2>
-                        <div class="content-item">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">No. Transaksi</th>
-                                        <th scope="col">Tanggal</th>
-                                        <th scope="col">Keterangan</th>
-                                        <th scope="col">Jumlah</th>
-                                        <th scope="col">Status</th>
+                    <h2>Transaksi Santri</h2>
+                    <div class="content-item">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">No. Transaksi</th>
+                                    <th scope="col">Tanggal</th>
+                                    <th scope="col">Keterangan</th>
+                                    <th scope="col">Jumlah</th>
+                                    <th scope="col">Status</th>
 
 
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($student->transactions->take(3) as $transaction)
-                                    <tr>
-                                        <th scope="row">{{$transaction->transaction_invoice}}</th>
-                                        <td>{{$transaction->created_at}}</td>
-                                        <td>{{$transaction->transaction_category}}</td>
-                                        <td>{{$transaction->transaction_fee}}</td>
-                                        <td @if($transaction->transaction_status == 'Belum diverifikasi') class="pending" @else class="sukses" @endif>{{$transaction->transaction_status}}</td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-
-                            </table>
-                            <center>
-                                <a href="{{route('santri.transaksi')}}"> <button class="btn btn-primary">Lihat
-                                        Semuanya</button></a>
-                            </center>
-                        </div>
-
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($transactions as $transaction)
+                                <tr>
+                                    <th scope="row"><a href="{{route('admin.detail.transaksi')}}">{{$transaction->transaction_invoice}}</a></th>
+                                    <td>{{$transaction->created_at}}</td>
+                                    <td>{{$transaction->transaction_category}}</td>
+                                    <td>{{$transaction->transaction_fee}}</td>
+                                    <td @if($transaction->transaction_status == 'Belum diverifikasi') class="pending" @else class="sukses" @endif>{{$transaction->transaction_status}}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-
-
             </div>
-
         </div>
     </div>
-
 </body>
 
 </html>

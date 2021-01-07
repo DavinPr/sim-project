@@ -45,7 +45,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="menu-link" href="#">
+                                <a class="menu-link" href="{{route('admin.show.transaksi')}}">
                                     <span class="icon fas fa-history"></span>
                                     Transaksi
                                 </a>
@@ -76,6 +76,7 @@
 
             <div class="col-9 main-wrapper">
                 <div class="container">
+                    <p class='nav justify-content-end nav-p'> </p>
                     <ul class="nav justify-content-end nav-top">
                         <li class="nav-item">
                             <a class="nav-link active" href="#">
@@ -92,27 +93,37 @@
                     </ul>
                 </div>
 
-                <div class="container list-santri">
-                    <div class="container mt-4">
-                        <form method="POST" action="{{ route('santri.transaction', $student->id) }}">
-                            @csrf
-                            <div class="mb-3">
-                                <label for="invoice" class="form-label">Invoice</label>
-                                <input type="text" class="form-control" id="invoice" name="invoice">
-                            </div>
-                            <div class="mb-3">
-                                <label for="fee" class="form-label">Fee</label>
-                                <input type="number" class="form-control" id="fee" , name="fee">
-                            </div>
-                            <div class="mb-3">
-                                <label for="proof" class="form-label">Proof</label>
-                                <input type="text" class="form-control" id="proof" name="proof">
-                            </div>
-                            <div class="mb-3">
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </div>
-                        </form>
+                <div class="container">
+                    <h2>Transaksi Santri</h2>
+                    <div class="content-item">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">No. Transaksi</th>
+                                    <th scope="col">Tanggal</th>
+                                    <th scope="col">Keterangan</th>
+                                    <th scope="col">Jumlah</th>
+                                    <th scope="col">Status</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach($transactions->take(3) as $transaction)
+                                <tr>
+                                    <th scope="row"><a href="{{route('admin.detail.transaksi')}}">{{$transaction->transaction_invoice}}</a></th>
+                                    <td>{{$transaction->created_at}}</td>
+                                    <td>{{$transaction->transaction_category}}</td>
+                                    <td>{{$transaction->transaction_fee}}</td>
+                                    <td @if($transaction->transaction_status == 'Belum diverifikasi') class="pending" @else class="sukses" @endif>{{$transaction->transaction_status}}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
+
+
                 </div>
 
             </div>

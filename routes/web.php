@@ -73,6 +73,16 @@ Route::group([
     Route::put('admin/update/person/{id}', 'AdminController@updatePerson')->name('admin.update.admin.person');
     Route::put('admin/update/student/{id}', 'AdminController@update')->name('admin.update.admin.user');
 
+
+    //Route to data transaksi
+    Route::get('admin/transaksi/show', 'TransactionController@indexAdmin')->name('admin.show.transaksi');
+
+    //Route to detail transaksi
+    Route::get('admin/transaksi/detail', 'AdminController@detailTransaksi')->name('admin.detail.transaksi');
+
+    //Route to verifikasi
+    Route::get('admin/transaksi/verifikasi', 'AdminController@verifikasi')->name('admin.verifikasi');
+
     //Route to logout
     Route::get('logout', 'authentication\LoginController@logout')->name('logout');
 });
@@ -91,16 +101,16 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/santri/profile/{student}', 'StudentController@show')->name('santri.profile');
 
     //Route to transaction history
-    Route::get('/santri/transaction/history/{id}', 'TransactionController@index')->name('santri.transaction.history');
+    Route::get('santri/transaksi', 'TransactionController@index')->name('santri.transaksi');
 
     //Route to transaction detail
-    Route::get('/stantri/transaction/detail/{transaction}', 'TransactionController@show')->name('santri.transaction.detail');
+    Route::get('/stantri/transaksi/detail/{transaction}', 'TransactionController@show')->name('santri.transaksi.detail');
 
     //Route for santri that upload a payment confirmation page
-    Route::get('/santri/transaction/{id}', 'TransactionController@create')->name('santri.transaction');
+    Route::get('santri/pembayaran', 'TransactionController@create')->name('santri.pembayaran');
 
     //Route for santri that upload a payment confirmation
-    Route::post('/santri/transaction/{id}', 'TransactionController@store')->name('santri.transaction');
+    Route::post('santri/pembayaran', 'TransactionController@store')->name('santri.pembayaran');
 
     //Route to logout
     Route::get('logout', 'authentication\LoginController@logout')->name('logout');

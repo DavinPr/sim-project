@@ -26,8 +26,9 @@ class CreateTransactionsTable extends Migration
                 ->onDelete('cascade');
             $table->string('transaction_invoice', 30);
             $table->bigInteger('transaction_fee');
-            $table->string('transaction_proof', 50);
-            $table->enum('transaction_status', ['Confirmed', 'Unconfirmed']);
+            $table->string('transaction_proof', 50)->nullable();
+            $table->enum('transaction_category', ['SPP', 'Kas', 'Daftar Ulang', 'Sumbangan']);
+            $table->enum('transaction_status', ['Terverifikasi', 'Belum diverifikasi', 'Ditolak']);
             $table->timestamps();
         });
     }

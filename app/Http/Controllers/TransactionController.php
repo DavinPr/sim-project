@@ -14,12 +14,16 @@ class TransactionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
-        $user_auth = Auth::user();
+        $transactions = Auth::user()->person->student->transactions;
+        return view('santri.show_data_transaksi', compact('transactions'));
+    }
 
-        $transactions = Transaction::where('student_id', $id)->get();
-        return view('example.transaction_history', compact(["transactions", "user_auth"]));
+    public function indexAdmin()
+    {
+        $transactions = Transaction::where('transaction_status', 'Belum diverifikasi')->get();
+        return view('admin.show_data_transaksi', compact('transactions'));
     }
 
     /**
@@ -27,10 +31,11 @@ class TransactionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create()
     {
-        $student = Student::find($id);
-        return view('example.transaction_form', compact("student"));
+        $user_auth = Auth::user();
+
+        return view('santri.pembayaran', compact("user_auth"));
     }
 
     /**
@@ -39,22 +44,23 @@ class TransactionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {
         //Validation
-        $request->validate([
-            'proof' => 'required|max:50'
-        ]);
 
-        $student = Student::find($id);
+        $student = Auth::user()->person->student;
 
+        $date_now = date('y-m-d-H-i');
+        $second_now = date('s');
+        $unique_value = str_replace(["-", "0"], "", $date_now) . $second_now;
         $transaction = new Transaction([
-            'transaction_invoice' => $request->invoice,
+            'transaction_invoice' => "TRX" . $unique_value . $student->nis,
             'transaction_fee' => $request->fee,
-            'transaction_proof' => $request->proof,
-            'transaction_status' => 'Unconfirmed'
+            'transaction_category' => $request->category,
+            'transaction_status' => 'Belum diverifikasi'
         ]);
-        $student->transaction()->save($transaction);
+        $student->transactions()->save($transaction);
+        return redirect(route('santri.pembayaran'))->with('status', 'Pembayaran berhasil diajukan!');
     }
 
     /**
@@ -65,8 +71,6 @@ class TransactionController extends Controller
      */
     public function show(Transaction $transaction)
     {
-        $user_auth = Auth::user();
-        return view('example.detail_transaction', compact(['transaction', 'user_auth']));
     }
 
     /**

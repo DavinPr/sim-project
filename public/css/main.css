@@ -120,7 +120,7 @@ a:hover{
     width: 90%;
     height: auto;
     background-color: #fff;
-    margin: 20px auto;
+    margin: 20px 10px;
     border-radius: px;
     box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1),
     0 0 0 1px rgba(10, 10, 10, 0.02);
@@ -137,7 +137,8 @@ a:hover{
 
 .item{
     display: inline-block;
-    margin-left: 20px;
+    margin: 20px 10px;
+   
 }
 .itemlist{
     width: 100%;
@@ -151,6 +152,7 @@ a:hover{
     font-weight: 600;
     color: #666;
     line-height: 50%;
+    margin: 10px;
 }
 
 .itemlist .icon{
@@ -212,4 +214,17 @@ table .icon{
 }
 .fa-trash-alt{
     color: #b85472;
+}
+.sukses{
+    color: rgb(35, 151, 35);
+    font-weight: 600;
+}
+
+.pending{
+    color: rgb(202, 68, 68);
+    font-weight: 600;
+}
+
+tr:hover{
+    background-color: rgb(250, 248, 248);
 }

@@ -47,7 +47,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="menu-link" href="#">
+                                <a class="menu-link" href="{{route('santri.transaksi')}}">
                                     <span class="icon fas fa-history"></span>
                                     Transaksi
                                 </a>
@@ -72,9 +72,9 @@
 
             <div class="col-9 main-wrapper">
                 <div class="container">
-                    <p class='nav justify-content-end nav-p'> Halo, {{$student->person->person_name}}</p> 
+                    <p class='nav justify-content-end nav-p'> Halo, {{$student->person->person_name}}</p>
                     <ul class="nav justify-content-end nav-top">
-                   
+
                         <li class="nav-item">
                             <a class="nav-link active" href="#">
                                 <span class="nav-icon fas fa-bell"></span>
@@ -94,37 +94,82 @@
                 </div>
 
                 <div class="container content">
-                    <div class="row">
-                        <div class="col-8">
-                            <h2>Beranda</h2>
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <a class="itemlist" href="#">
 
-                                            <span class="icon fas fa-file-invoice"></span>
-                                           Tagihan
-
-                                        </a>
-
-                                    </div>
-                                   
-
-                                </div>
-                            </div>
-
-
-                        </div>
-                        <div class="container">
-                            <div class="transaksi">
-                                <h2>Transaksi Terbaru</h2>
-                            </div>
-                        </div>
-
-
+                    <h2>Beranda</h2>
+                    <div class="item">
+                        <a class="itemlist" href="{{route('santri.pembayaran')}}">
+                            <span class="icon fas fa-file-invoice"></span>
+                            Pembayaran
+                        </a>
                     </div>
 
+
+
+
+
                 </div>
+                <div class="container">
+                    <div class="transaksi">
+                        <h2>Riwayat Transaksi</h2>
+                        <div class="content-item">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">No. Transaksi</th>
+                                        <th scope="col">Tanggal</th>
+                                        <th scope="col">Keterangan</th>
+                                        <th scope="col">Jumlah</th>
+                                        <th scope="col">Status</th>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <th scope="row">#777</th>
+                                        <td>1 Januari 2021</td>
+                                        <td>Pembayaran SPP</td>
+                                        <td>100000</td>
+                                        <td class="sukses">Terverifikasi</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row">#797</th>
+                                        <td>2 Ferbruari 2021</td>
+                                        <td>Pembayaran SPP</td>
+                                        <td>100000</td>
+                                        <td class="sukses">Terverifikasi</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row">#820</th>
+                                        <td>3 Maret 2021</td>
+                                        <td>Pembayaran SPP</td>
+                                        <td>100000</td>
+                                        <td class="sukses">Terverifikasi</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row">#899</th>
+                                        <td>4 April 2021</td>
+                                        <td>Pembayaran SPP</td>
+                                        <td>100000</td>
+                                        <td class="sukses">Terverifikasi</td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+                            <center>
+                                <a href="{{route('santri.transaksi')}}"> <button class="btn btn-primary">Lihat
+                                        Semuanya</button></a>
+                            </center>
+                        </div>
+
+                    </div>
+                </div>
+
 
             </div>
 

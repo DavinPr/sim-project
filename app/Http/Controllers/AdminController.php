@@ -97,6 +97,11 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    
+
+
+   
     public function edit($id)
     {
         $user = User::where('id', $id)->first();
@@ -157,4 +162,22 @@ class AdminController extends Controller
         Person::destroy($id);
         return redirect(route('admin.show.admin.page'))->with('status', 'Data Admin Berhasil Dihapus!');
     }
+
+    public function transaksi()
+    {
+        return view('admin.show_data_trasaksi');
+    }
+
+    public function detailTransaksi()
+    {
+        return view('admin.detail_transaksi');
+    }
+
+    public function verifikasi()
+    {
+        return view('admin.verifikasi');
+    }
+
+    
+    
 }

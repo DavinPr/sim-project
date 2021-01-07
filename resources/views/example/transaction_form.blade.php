@@ -94,51 +94,31 @@
 
                 <div class="container list-santri">
                     <div class="container mt-4">
-                        <form method="POST" action="{{ route('admin.create.admin') }}">
+                        <form method="POST" action="{{ route('santri.transaction', $student->id) }}">
                             @csrf
                             <div class="mb-3">
-                                <label for="username" class="form-label">Username</label>
-                                <input type="text" class="form-control" id="username" name="username">
+                                <label for="invoice" class="form-label">Invoice</label>
+                                <input type="text" class="form-control" id="invoice" name="invoice">
                             </div>
                             <div class="mb-3">
-                                <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" , name="password">
+                                <label for="fee" class="form-label">Fee</label>
+                                <input type="number" class="form-control" id="fee" , name="fee">
                             </div>
                             <div class="mb-3">
-                                <label for="name" class="form-label">Nama Lengkap</label>
-                                <input type="text" class="form-control" id="name" name="person_name">
-                            </div>
-                            <div class="mb-3">
-                                <label for="birthdate" class="form-label">Tanggal Lahir</label>
-                                <input type="date" class="form-control" id="birthdate" name="person_birthdate">
-                            </div>
-                            <div class="mb-3">
-                                <label for="birthplace" class="form-label">Tempat Lahir</label>
-                                <input type="text" class="form-control" id="birthplace" name="person_birthplace">
-                            </div>
-                            <div class="mb-3">
-                                <label for="gender" class="form-label">Jenis Kelamin</label>
-                                <br>
-
-                                <input type="radio" id="male" name="person_gender" value="Laki-laki">
-                                <label for="male">Laki-laki</label><br>
-                                <input type="radio" id="female" name="person_gender" value="Perempuan">
-                                <label for="female">Perempuan</label><br>
-                            </div>
-                            <div class="mb-3">
-                                <label for="avatar" class="form-label">Avatar</label>
-                                <input type="text" class="form-control" id="avatar" name="person_avatar">
+                                <label for="proof" class="form-label">Proof</label>
+                                <input type="text" class="form-control" id="proof" name="proof">
                             </div>
                             <div class="mb-3">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
                         </form>
                     </div>
-
                 </div>
 
             </div>
+
         </div>
+    </div>
 </body>
 
 </html>

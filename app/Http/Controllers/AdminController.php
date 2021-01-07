@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Admin;
 use Illuminate\Http\Request;
 use App\User;
 use App\Person;
@@ -75,6 +76,9 @@ class AdminController extends Controller
             'is_admin' => 1
         ]);
         $person->user()->save($user);
+
+        $admin = new Admin();
+        $person->admin()->save($admin);
 
         return redirect(route('admin.show.admin.page'))->with('status', 'Data Admin Berhasil Ditambahkan!');
     }

@@ -9,8 +9,7 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/main.css">
     <script src="https://kit.fontawesome.com/543ccfb2d9.js" crossorigin="anonymous"></script>
 
@@ -72,9 +71,9 @@
 
             <div class="col-9 main-wrapper">
                 <div class="container">
-                    <p class='nav justify-content-end nav-p'> Halo, {{$student->person->person_name}}</p> 
+                    <p class='nav justify-content-end nav-p'> Halo, {{$student->person->person_name}}</p>
                     <ul class="nav justify-content-end nav-top">
-                   
+
                         <li class="nav-item">
                             <a class="nav-link active" href="#">
                                 <span class="nav-icon fas fa-bell"></span>
@@ -100,15 +99,15 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-6">
-                                        <a class="itemlist" href="#">
+                                        <a class="itemlist" href="{{ route('santri.transaction.history', $student->id) }}">
 
                                             <span class="icon fas fa-file-invoice"></span>
-                                           Tagihan
+                                            Tagihan
 
                                         </a>
 
                                     </div>
-                                   
+
 
                                 </div>
                             </div>

@@ -76,6 +76,7 @@
 
             <div class="col-9 main-wrapper">
                 <div class="container">
+                    <p class='nav justify-content-end nav-p'> Halo, {{$user_auth->person->person_name}}</p>
                     <ul class="nav justify-content-end nav-top">
                         <li class="nav-item">
                             <a class="nav-link active" href="#">
@@ -92,53 +93,43 @@
                     </ul>
                 </div>
 
-                <div class="container list-santri">
-                    <div class="container mt-4">
-                        <form method="POST" action="{{ route('admin.create.admin') }}">
-                            @csrf
-                            <div class="mb-3">
-                                <label for="username" class="form-label">Username</label>
-                                <input type="text" class="form-control" id="username" name="username">
-                            </div>
-                            <div class="mb-3">
-                                <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" , name="password">
-                            </div>
-                            <div class="mb-3">
-                                <label for="name" class="form-label">Nama Lengkap</label>
-                                <input type="text" class="form-control" id="name" name="person_name">
-                            </div>
-                            <div class="mb-3">
-                                <label for="birthdate" class="form-label">Tanggal Lahir</label>
-                                <input type="date" class="form-control" id="birthdate" name="person_birthdate">
-                            </div>
-                            <div class="mb-3">
-                                <label for="birthplace" class="form-label">Tempat Lahir</label>
-                                <input type="text" class="form-control" id="birthplace" name="person_birthplace">
-                            </div>
-                            <div class="mb-3">
-                                <label for="gender" class="form-label">Jenis Kelamin</label>
-                                <br>
-
-                                <input type="radio" id="male" name="person_gender" value="Laki-laki">
-                                <label for="male">Laki-laki</label><br>
-                                <input type="radio" id="female" name="person_gender" value="Perempuan">
-                                <label for="female">Perempuan</label><br>
-                            </div>
-                            <div class="mb-3">
-                                <label for="avatar" class="form-label">Avatar</label>
-                                <input type="text" class="form-control" id="avatar" name="person_avatar">
-                            </div>
-                            <div class="mb-3">
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </div>
-                        </form>
+                <div class="container content-item">
+                    @if (session('status'))
+                    <div class="alert alert-success">
+                        {{ session('status') }}
                     </div>
+                    @endif
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Invoice</th>
+                                <th scope="col">Fee</th>
+                                <th scope="col">Status</th>
 
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($transactions as $transaction)
+                            <tr>
+                                <th scope="row">{{ $loop->iteration }}</th>
+                                <td>
+                                    <a href="{{route('santri.transaction.detail', $transaction)}}">
+                                        {{$transaction->transaction_invoice}}
+                                    </a>
+                                </td>
+                                <td>{{$transaction->transaction_fee}}</td>
+                                <td>{{$transaction->transaction_status}}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
 
             </div>
+
         </div>
+    </div>
 </body>
 
 </html>

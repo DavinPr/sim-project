@@ -90,6 +90,18 @@ Route::group(['middleware' => 'auth'], function () {
     //Route to profile
     Route::get('/santri/profile/{student}', 'StudentController@show')->name('santri.profile');
 
+    //Route to transaction history
+    Route::get('/santri/transaction/history/{id}', 'TransactionController@index')->name('santri.transaction.history');
+
+    //Route to transaction detail
+    Route::get('/stantri/transaction/detail/{transaction}', 'TransactionController@show')->name('santri.transaction.detail');
+
+    //Route for santri that upload a payment confirmation page
+    Route::get('/santri/transaction/{id}', 'TransactionController@create')->name('santri.transaction');
+
+    //Route for santri that upload a payment confirmation
+    Route::post('/santri/transaction/{id}', 'TransactionController@store')->name('santri.transaction');
+
     //Route to logout
     Route::get('logout', 'authentication\LoginController@logout')->name('logout');
 });

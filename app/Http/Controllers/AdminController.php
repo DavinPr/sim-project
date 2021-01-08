@@ -6,6 +6,8 @@ use App\Admin;
 use Illuminate\Http\Request;
 use App\User;
 use App\Person;
+use App\Transaction;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -167,13 +169,10 @@ class AdminController extends Controller
         return redirect(route('admin.show.admin.page'))->with('status', 'Data Admin Berhasil Dihapus!');
     }
 
-    public function detailTransaksi()
-    {
-        return view('admin.detail_transaksi');
-    }
-
     public function verifikasi()
     {
-        return view('admin.verifikasi');
+        $admin = Auth::user()->person->admin;
+        $transactions = Transaction::where('admin_id', $admin->id)->get();
+        return view('admin.verifikasi', compact('transactions'));
     }
 }

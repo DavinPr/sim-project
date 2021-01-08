@@ -9,8 +9,7 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/main.css">
     <script src="https://kit.fontawesome.com/543ccfb2d9.js" crossorigin="anonymous"></script>
 
@@ -95,7 +94,7 @@
                 </div>
 
                 <div class="container">
-                    <h2>Belum Terverifikasi</h2>
+                    <h2>Data Terverifikasi</h2>
                     <div class="content-item">
                         <table class="table">
                             <thead>
@@ -110,39 +109,16 @@
                                 </tr>
                             </thead>
                             <tbody>
-
-
+                                @foreach($transactions as $transaction)
                                 <tr>
-                                    <th scope="row">#899</th>
-                                    <td>4 April 2021</td>
-                                    <td>Pembayaran SPP</td>
-                                    <td>100000</td>
-                                    <td class="pending">Belum Terverifikasi</td>
+                                    <th scope="row"><a href="{{route('admin.detail.transaksi', $transaction)}}">{{$transaction->transaction_invoice}}</a></th>
+                                    <td>{{$transaction->created_at}}</td>
+                                    <td>{{$transaction->transaction_category}}</td>
+                                    <td>{{$transaction->transaction_fee}}</td>
+                                    <td @if($transaction->transaction_status == 'Belum diverifikasi') class="pending" @elseif($transaction->transaction_status == 'Ditolak') class="gagal" @else class="sukses" @endif>{{$transaction->transaction_status}}</td>
                                 </tr>
-                                <tr>
-                                    <th scope="row">#899</th>
-                                    <td>4 April 2021</td>
-                                    <td>Pembayaran SPP</td>
-                                    <td>100000</td>
-                                    <td class="pending">Belum Terverifikasi</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">#899</th>
-                                    <td>4 April 2021</td>
-                                    <td>Pembayaran SPP</td>
-                                    <td>100000</td>
-                                    <td class="pending">Belum Terverifikasi</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">#899</th>
-                                    <td>4 April 2021</td>
-                                    <td>Pembayaran SPP</td>
-                                    <td>100000</td>
-                                    <td class="pending">Belum Terverifikasi</td>
-                                </tr>
-
+                                @endforeach
                             </tbody>
-
                         </table>
                     </div>
                 </div>

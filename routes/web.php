@@ -78,10 +78,13 @@ Route::group([
     Route::get('admin/transaksi/show', 'TransactionController@indexAdmin')->name('admin.show.transaksi');
 
     //Route to detail transaksi
-    Route::get('admin/transaksi/detail', 'AdminController@detailTransaksi')->name('admin.detail.transaksi');
+    Route::get('admin/transaksi/detail/{transaction}', 'TransactionController@show')->name('admin.detail.transaksi');
 
     //Route to verifikasi
     Route::get('admin/transaksi/verifikasi', 'AdminController@verifikasi')->name('admin.verifikasi');
+
+    //Route to update verification status
+    Route::put('admin/transaksi/update/{transaction}', 'TransactionController@update')->name('admin.transaksi.update');
 
     //Route to logout
     Route::get('logout', 'authentication\LoginController@logout')->name('logout');

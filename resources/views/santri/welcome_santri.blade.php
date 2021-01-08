@@ -126,7 +126,8 @@
                                         <td>{{$transaction->created_at}}</td>
                                         <td>{{$transaction->transaction_category}}</td>
                                         <td>{{$transaction->transaction_fee}}</td>
-                                        <td @if($transaction->transaction_status == 'Belum diverifikasi') class="pending" @else class="sukses" @endif>{{$transaction->transaction_status}}</td>
+                                        <td @if($transaction->transaction_status == 'Belum diverifikasi') class="pending" @elseif($transaction->transaction_status == 'Ditolak') class="gagal" @else class="sukses" @endif>{{$transaction->transaction_status}}</td>
+
                                     </tr>
                                     @endforeach
                                 </tbody>

@@ -45,48 +45,48 @@
                     </div>
 
                     <div class="container">
-                    <div class="menus">
+                        <div class="menus">
 
-                        <ul class="menus-block">
-                            <li>
-                                <a class="menu-link" href="{{route('admin.homepage')}}">
-                                    <span class="icon fas fa-home"></span>
-                                    Beranda
-                                </a>
-                            </li>
-                            <li>
-                                <a class="menu-link" href="#">
-                                    <span class="icon fas fa-user-circle"></span>
-                                    Akun
-                                </a>
-                            </li>
-                            <li>
-                                <a class="menu-link" href="{{route('admin.show.transaksi')}}">
-                                    <span class="icon fas fa-history"></span>
-                                    Transaksi
-                                </a>
-                            </li>
+                            <ul class="menus-block">
+                                <li>
+                                    <a class="menu-link" href="{{route('admin.homepage')}}">
+                                        <span class="icon fas fa-home"></span>
+                                        Beranda
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="menu-link" href="#">
+                                        <span class="icon fas fa-user-circle"></span>
+                                        Akun
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="menu-link" href="{{route('admin.show.transaksi')}}">
+                                        <span class="icon fas fa-history"></span>
+                                        Transaksi
+                                    </a>
+                                </li>
 
-                            <li>
-                                <a class="menu-link" href="#">
-                                    <span class="icon fas fa-check-square"></span>
-                                    Verifikasi
-                                </a>
-                            </li>
+                                <li>
+                                    <a class="menu-link" href="#">
+                                        <span class="icon fas fa-check-square"></span>
+                                        Verifikasi
+                                    </a>
+                                </li>
 
-                            <li>
-                                <a class="menu-link" href="#">
-                                    <span class="icon fas fa-file-alt"></span>
-                                    Laporan
-                                </a>
-                            </li>
+                                <li>
+                                    <a class="menu-link" href="#">
+                                        <span class="icon fas fa-file-alt"></span>
+                                        Laporan
+                                    </a>
+                                </li>
 
 
 
-                        </ul>
+                            </ul>
 
+                        </div>
                     </div>
-                </div>
                 </div>
 
 
@@ -107,7 +107,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                            <a href="{{route('logout')}}"><span class="nav-icon fas fa-sign-out-alt"></span></a>
+                                <a href="{{route('logout')}}"><span class="nav-icon fas fa-sign-out-alt"></span></a>
                             </li>
 
                         </ul>
@@ -115,19 +115,32 @@
 
                     <div class="container content">
                         <div class="container content-item content-list">
-                        <h2>Verifikasi Pembayaran</h2>
-                        <P> <b>Nomer Transaksi</b>  = #777 </P>
-                        <p> <b>Tanggal Transaksi</b>  = 1 Januari 2021 </p>
-                        <p> <b>Pembayaran</b>  = SPP</p>
-                        <p> <b>Nama Santri</b>  = Hanif Amiruddiin</p> 
-                        <p> <b>Bukti Transaksi</b>  = Lihat</p> 
+                            <h2>Verifikasi Pembayaran</h2>
+                            @if (session('status'))
+                            <div class="alert alert-success">
+                                {{ session('status') }}
+                            </div>
+                            @endif
+                            <P> <b>Nomer Transaksi</b> = {{$transaction->transaction_invoice}} </P>
+                            <p> <b>Tanggal Transaksi</b> = {{$transaction->created_at}} </p>
+                            <p> <b>Pembayaran</b> = {{$transaction->transaction_category}}</p>
+                            <p> <b>Nama Santri</b> = {{$transaction->student->person->person_name}}</p>
+                            <p> <b>Status</b> = {{$transaction->transaction_status}}</p>
+                            <p> <b>Diverifikasi oleh admin</b> =
+                                @if($transaction->admin != null)
+                                {{$transaction->admin->person->person_name}}
+                                @endif
+                            </p>
+                            <p> <b>Bukti Transaksi</b> = Lihat</p>
+                            <br>
+                            <br>
+                            <form action="{{route('admin.transaksi.update', $transaction)}}" method="post">
+                                @method('put')
+                                @csrf
+                                <button type="submit" class="btn btn-success" name="verification" value="Terverifikasi">Terima</button>
+                                <button type="submit" class="btn btn-danger" name="verification" value="Ditolak">Tolak</button>
+                            </form>
 
-                        <br>
-                        <br>
-
-                        <button type="button" class="btn btn-success">Terima</button>  
-                        <button type="button" class="btn btn-danger">Tolak</button>                              
-                                
                         </div>
                     </div>
 

@@ -71,6 +71,7 @@ class TransactionController extends Controller
      */
     public function show(Transaction $transaction)
     {
+        return view('admin.detail_transaksi', compact('transaction'));
     }
 
     /**
@@ -93,7 +94,13 @@ class TransactionController extends Controller
      */
     public function update(Request $request, Transaction $transaction)
     {
-        //
+        $admin = Auth::user()->person->admin->id;
+        Transaction::where('id', $transaction->id)
+            ->update([
+                'admin_id' => $admin,
+                'transaction_status' => $request->verification
+            ]);
+        return redirect(route('admin.detail.transaksi', $transaction))->with('status', "Transaksi berhasil $request->verification");
     }
 
     /**

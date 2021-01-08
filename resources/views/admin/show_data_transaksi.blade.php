@@ -109,7 +109,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($transactions->take(3) as $transaction)
+                                @foreach($transactions as $transaction)
                                 <tr>
                                     <th scope="row"><a href="{{route('admin.detail.transaksi', $transaction)}}">{{$transaction->transaction_invoice}}</a></th>
                                     <td>{{$transaction->created_at}}</td>

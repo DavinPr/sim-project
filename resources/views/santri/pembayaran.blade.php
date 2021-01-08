@@ -95,7 +95,7 @@
                         </div>
                         @endif
                         <br>
-                        <form method="POST" action="{{ route('santri.pembayaran', $user_auth->person->student->id) }}">
+                        <form method="POST" action="{{ route('santri.pembayaran', $user_auth->person->student->id) }}" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
                                 <label for="fee" class="form-label">Jumlah Nominal</label>
@@ -114,9 +114,9 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <label for="avatar">Upload Bukti Pembayaran</label>
+                                <label for="proof">Upload Bukti Pembayaran</label>
                                 <br>
-                                <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
+                                <input type="file" id="proof" name="proof" accept="image/png, image/jpeg">
 
                             </div>
 

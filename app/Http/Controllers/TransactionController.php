@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Student;
 use App\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -48,15 +47,26 @@ class TransactionController extends Controller
     {
         //Validation
 
+        $this->validate($request, [
+            'fee' => 'required',
+            'category' => 'required',
+            'avatar' => 'mimes:jpg,png,jpeg'
+        ]);
+
         $student = Auth::user()->person->student;
 
         $date_now = date('y-m-d-H-i');
         $second_now = date('s');
         $unique_value = str_replace(["-", "0"], "", $date_now) . $second_now;
+
+        $img_name = "proof_$student->nis" . "$unique_value.png";
+        $request->file('proof')->storeAs('public/proof', $img_name);
+
         $transaction = new Transaction([
-            'transaction_invoice' => "TRX" . $unique_value . $student->nis,
+            'transaction_invoice' => "TRX$unique_value$student->id",
             'transaction_fee' => $request->fee,
             'transaction_category' => $request->category,
+            'transaction_proof' => $img_name,
             'transaction_status' => 'Belum diverifikasi'
         ]);
         $student->transactions()->save($transaction);

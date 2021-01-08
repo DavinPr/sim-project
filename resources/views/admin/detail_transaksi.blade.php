@@ -131,7 +131,7 @@
                                 {{$transaction->admin->person->person_name}}
                                 @endif
                             </p>
-                            <p> <b>Bukti Transaksi</b> = Lihat</p>
+                            <p> <b>Bukti Transaksi</b> = <img src="{{ asset('storage/proof/' . $transaction->transaction_proof) }}" alt="" width="200"></p>
                             <br>
                             <br>
                             <form action="{{route('admin.transaksi.update', $transaction)}}" method="post">

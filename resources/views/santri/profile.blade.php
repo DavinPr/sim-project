@@ -25,18 +25,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($students as $student)
-            <tr>
-                <th scope="row">{{ $loop->iteration }}</th>
-                <td>{{$student->nis}}</td>
-                <td>{{$student->person->person_name}}</td>
-                <td>{{$student->person->person_birthdate}}</td>
-                <td>{{$student->person->person_birthplace}}</td>
-                <td>{{$student->person->person_gender}}</td>
-                <td>{{$student->spp}}</td>
-                <td><a href="/santri/{{$student->id}}">Click</a></td>
-            </tr>
-            @endforeach
+           
         </tbody>
     </table>
 </div>

@@ -182,4 +182,13 @@ class StudentController extends Controller
         Person::destroy($student->person->id);
         return redirect('/santri/show')->with('status', 'Data Santri Berhasil Dihapus!');
     }
+
+    public function profile()
+    {
+        $user_auth = Auth::user();
+        if (Auth::user()->is_admin) {
+            return view('admin.detail_santri_example');
+        }
+        return view('santri.profile');
+    }
 }

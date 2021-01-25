@@ -21,7 +21,7 @@
         <tbody>
             @foreach($bills as $bill)
             <tr>
-                <th scope="row"><a href="">{{$bill->bill_number}}</a></th>
+                <th scope="row"><a href="{{route('santri.add.pembayaran', $bill)}}">{{$bill->bill_number}}</a></th>
                 <td>{{$bill->created_at}}</td>
                 <td>{{$bill->bill_category}}</td>
                 <td>{{$bill->bill_fee}}</td>

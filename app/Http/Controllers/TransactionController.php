@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Bill;
 use App\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -32,20 +33,15 @@ class TransactionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Bill $bill)
     {
         $user_auth = Auth::user();
 
-        return view('santri.pembayaran', compact("user_auth"));
+        return view('santri.pembayaran', compact("user_auth", 'bill'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+    public function store(Request $request, Bill $bill)
     {
         //Validation
 
@@ -65,6 +61,7 @@ class TransactionController extends Controller
         $request->file('proof')->storeAs('public/proof', $img_name);
 
         $transaction = new Transaction([
+            'bill_id' => $bill->id,
             'transaction_invoice' => "TRX$unique_value$student->id",
             'transaction_fee' => $request->fee,
             'transaction_category' => $request->category,
@@ -108,6 +105,14 @@ class TransactionController extends Controller
     public function update(Request $request, Transaction $transaction)
     {
         $admin = Auth::user()->person->admin->id;
+
+        if ($request->verification == 'Terverifikasi') {
+            Bill::where('id', $transaction->bill_id)
+                ->update([
+                    'bill_status' => 'Lunas'
+                ]);
+        }
+
         Transaction::where('id', $transaction->id)
             ->update([
                 'admin_id' => $admin,

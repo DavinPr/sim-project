@@ -125,10 +125,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/stantri/transaksi/detail/{transaction}', 'TransactionController@show')->name('santri.transaksi.detail');
 
     //Route for santri that upload a payment confirmation page
-    Route::get('santri/pembayaran', 'TransactionController@create')->name('santri.pembayaran');
+    Route::get('santri/pembayaran/{bill}', 'TransactionController@create')->name('santri.add.pembayaran');
 
     //Route for santri that upload a payment confirmation
-    Route::post('santri/pembayaran', 'TransactionController@store')->name('santri.pembayaran');
+    Route::post('santri/pembayaran/{bill}', 'TransactionController@store')->name('santri.pembayaran');
 
     //Route for santri that upload a payment confirmation
     Route::get('santri/profile', 'StudentController@profile')->name('santri.profile');

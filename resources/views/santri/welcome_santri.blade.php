@@ -7,10 +7,6 @@
 
 <h2>Beranda</h2>
 <div class="item">
-    <a class="itemlist" href="{{ route('santri.pembayaran') }}">
-        <span class="icon fas fa-file-invoice"></span>
-        Pembayaran
-    </a>
     <a class="itemlist" href="{{ route('santri.show.bill') }}">
         <span class="icon fas fa-file-invoice"></span>
         Tagihan

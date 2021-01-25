@@ -250,3 +250,27 @@ tr:hover{
 .content-list p{
     margin: 0;
 }
+
+/* CSS Account */
+.account__image {
+    display: flex;
+    flex-direction: column;
+}
+
+.account__image img {
+    max-width: 120px;
+    border-radius: 15px;
+}
+
+.account__image button {
+    max-width: 120px;
+    margin: 10px 0;
+}
+
+.account label {
+    font-weight: 500;
+}
+
+.account__container__content {
+    margin: 15px 0;
+}

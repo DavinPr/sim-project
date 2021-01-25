@@ -31,7 +31,8 @@
                 <td>{{$student->nis}}</td>
                 <td>{{$student->person->person_name}}</td>
                 <td>Lihat</td>
-                @endforeach
+            </tr>
+            @endforeach
         </tbody>
     </table>
 </div>

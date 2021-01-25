@@ -100,6 +100,9 @@ Route::group([
 
     //Route to account
     Route::get('admin/account/detail', 'AccountController@adminIndex')->name('admin.account.detail');
+
+    //Route to account
+    Route::post('admin/account/detail', 'AccountController@update')->name('admin.update.profile');
 });
 
 
@@ -135,6 +138,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Route to account
     Route::get('santri/account/detail', 'AccountController@santriIndex')->name('santri.account.detail');
+
+
+    Route::post('santri/account/detail', 'AccountController@update')->name('santri.update.profile');
 
     //Route to Bill Page
     Route::get('santri/transaksi/tagihan', 'BillController@index')->name('santri.show.bill');

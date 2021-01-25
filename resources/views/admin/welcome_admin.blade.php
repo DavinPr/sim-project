@@ -49,7 +49,7 @@
 
                 @foreach($transactions->take(3) as $transaction)
                 <tr>
-                    <th scope="row">{{$transaction->transaction_invoice}}</th>
+                    <th scope="row"><a href="{{route('admin.detail.transaksi', $transaction)}}">{{$transaction->transaction_invoice}}</a></th>
                     <td>{{$transaction->created_at}}</td>
                     <td>{{$transaction->transaction_category}}</td>
                     <td>{{$transaction->transaction_fee}}</td>

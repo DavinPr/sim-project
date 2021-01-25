@@ -13,7 +13,7 @@
     </a>
     <a class="itemlist" href="{{ route('santri.show.bill') }}">
         <span class="icon fas fa-file-invoice"></span>
-        Pembayaran
+        Tagihan
     </a>
 </div>
 

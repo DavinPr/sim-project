@@ -52,7 +52,7 @@ class TransactionController extends Controller
         $this->validate($request, [
             'fee' => 'required',
             'category' => 'required',
-            'avatar' => 'mimes:jpg,png,jpeg'
+            'proof' => 'mimes:jpg,png,jpeg'
         ]);
 
         $student = Auth::user()->person->student;

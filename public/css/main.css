@@ -1,58 +1,54 @@
-a{
+a {
     text-decoration: none;
 }
-a:hover{
+a:hover {
     text-decoration: none;
 }
-.wrapper{
+.wrapper {
     height: 800px;
-    
 }
-.header{
+.header {
     height: 450px;
     background-color: #2f3e46;
-    
 }
-.sidebar{
+.sidebar {
     min-height: 800px;
     background-color: #fff;
     padding: 20px 0;
 }
-.logo img{
+.logo img {
     padding: 30px;
     height: 17%;
     width: 17%;
-   
-
 }
-.title{
+.title {
     font-size: 28px;
     color: #fff;
     font-weight: 600;
 }
-.menus ul{
+.menus ul {
     list-style-type: none;
     margin: 0;
     padding-left: 0;
 }
 
-.menus-block li{
+.menus-block li {
     height: 50px;
     position: relative;
 }
 
-.menus-block li a{
-    color: #555;    
+.menus-block li a {
+    color: #555;
 }
 
-.menus-block li a:hover{
+.menus-block li a:hover {
     color: #222;
 }
 
-.menu-link{
+.menu-link {
     line-height: 50px;
-	display: block;
-	border-bottom: 1px solid #eee;
+    display: block;
+    border-bottom: 1px solid #eee;
 }
 
 .icon {
@@ -66,13 +62,13 @@ a:hover{
     color: #444;
 }
 
-.menu-link:hover .icon{
+.menu-link:hover .icon {
     color: #222;
 }
 
-.main-wrapper{
+.main-wrapper {
     background-color: #f0f0f0;
-    padding:40px 20px;
+    padding: 40px 20px;
 }
 .top-right {
     position: absolute;
@@ -83,11 +79,11 @@ a:hover{
     margin-top: 5px;
 }
 
-.nav-top a{
+.nav-top a {
     font-size: 18px;
-    color:#757575;
+    color: #757575;
 }
-.nav-p{
+.nav-p {
     margin-top: 20px;
 }
 
@@ -103,58 +99,55 @@ a:hover{
     text-align: center;
 }
 
-.nav-link{
+.nav-link {
     padding: 2px 2px;
 }
 
-.profileSum{
+.profileSum {
     width: 100%;
     height: 400px;
     background-color: #fff;
     margin: 20px;
     border-radius: 20px;
     box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1),
-    0 0 0 1px rgba(10, 10, 10, 0.02);
+        0 0 0 1px rgba(10, 10, 10, 0.02);
 }
-.profile-img img{
+.profile-img img {
     width: 150px;
     height: 150px;
     border: 5px solid #eee;
     border-radius: 50%;
     margin: 30px;
-    
 }
 
-.content-item{
+.content-item {
     width: 90%;
     height: auto;
     background-color: #fff;
     margin: 20px 10px;
     border-radius: px;
     box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1),
-    0 0 0 1px rgba(10, 10, 10, 0.02);
+        0 0 0 1px rgba(10, 10, 10, 0.02);
     padding: 20px;
 }
 
-.content-item tr{
+.content-item tr {
     border-color: #eee;
-    
 }
-.table>:not(:last-child)>:last-child>*{
+.table > :not(:last-child) > :last-child > * {
     border-color: #eee;
 }
 
-.item{
+.item {
     display: inline-block;
     margin: 20px 10px;
-   
 }
-.itemlist{
+.itemlist {
     width: 100%;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1),
-    0 0 0 1px rgba(10, 10, 10, 0.02);
+        0 0 0 1px rgba(10, 10, 10, 0.02);
     padding: 30px 30px;
     margin-top: 100px;
     font-size: 20px;
@@ -164,7 +157,7 @@ a:hover{
     margin: 10px;
 }
 
-.itemlist .icon{
+.itemlist .icon {
     margin: 0;
     font-size: 32px;
     width: auto;
@@ -174,87 +167,85 @@ a:hover{
     padding: 8px 6px;
     border-radius: 10px;
     margin-right: 10px;
-
 }
 
 h2 {
     font-size: 24px;
     color: #666;
 }
- .content h2{
-     margin: 0 0 50px 10px;
- }
+.content h2 {
+    margin: 0 0 50px 10px;
+}
 
- .content .row{
-     margin-left: 0;
-     padding-left:0 ;
- }
+.content .row {
+    margin-left: 0;
+    padding-left: 0;
+}
 
- .transaksi{
-     margin-top: 100px;
- }
- .btn-primary{
-     width: 100%;
-     background-color: #313e44;
-     border-color: #4a4f56;
-     color: #eee;
- }
+.transaksi {
+    margin-top: 100px;
+}
+.btn-primary {
+    width: 100%;
+    background-color: #313e44;
+    border-color: #4a4f56;
+    color: #eee;
+}
 
- .btn-primary:hover{
+.btn-primary:hover {
     background-color: #273135;
-    
+
     color: #fff;
 }
 
-.btn-none{
+.btn-none {
     border: 0;
     background: 0;
 }
 
-table .icon{
+table .icon {
     margin: 0;
 }
 
-.fa-info-circle{
+.fa-info-circle {
     color: #273135;
 }
-.fa-edit{
+.fa-edit {
     color: #5466b8;
 }
-.fa-trash-alt{
+.fa-trash-alt {
     color: #b85472;
 }
-.sukses{
+.sukses {
     color: rgb(35, 151, 35);
     font-weight: 600;
 }
 
-.pending{
+.pending {
     color: rgb(202, 166, 68);
     font-weight: 600;
 }
 
-.gagal{
+.gagal {
     color: rgb(202, 68, 68);
     font-weight: 600;
 }
 
-tr:hover{
+tr:hover {
     background-color: rgb(250, 248, 248);
 }
 
-.content-list{
-    padding: 50px 100px ;
+.content-list {
+    padding: 50px 100px;
 }
 
-.content-list p{
+.content-list p {
     margin: 0;
 }
 
 /* CSS Account */
 .account__image {
     display: flex;
-    flex-direction: column;
 }
 
 .account__image img {

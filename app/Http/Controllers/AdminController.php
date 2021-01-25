@@ -29,7 +29,7 @@ class AdminController extends Controller
     {
         $admins = User::where('is_admin', 1)->get();
         $user = Auth::user();
-        return view('admin.show_data_admin_example', compact(['admins', 'user']));
+        return view('admin.show_data_admin', compact(['admins', 'user']));
     }
 
     /**
@@ -96,7 +96,7 @@ class AdminController extends Controller
     {
         $user = User::where('id', $id)->first();
         $user_auth = Auth::user();
-        return view('admin.detail_admin_example', compact(['user', 'user_auth']));
+        return view('admin.detail_admin', compact(['user', 'user_auth']));
     }
 
     /**
@@ -113,7 +113,7 @@ class AdminController extends Controller
     public function edit($id)
     {
         $user = User::where('id', $id)->first();
-        return view('admin.update_data_admin_example', compact('user'));
+        return view('admin.update_data_admin', compact('user'));
     }
 
     /**
@@ -173,8 +173,8 @@ class AdminController extends Controller
 
     public function verifikasi()
     {
-        $admin = Auth::user()->person->admin;
-        $transactions = Transaction::where('admin_id', $admin->id)->get();
-        return view('admin.verifikasi', compact('transactions'));
+        $user = Auth::user();
+        $transactions = Transaction::where('admin_id', $user->person->admin->id)->get();
+        return view('admin.verifikasi', compact(['transactions', 'user']));
     }
 }

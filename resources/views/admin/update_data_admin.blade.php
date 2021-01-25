@@ -6,6 +6,14 @@
 {{ $user->person->person_name }}
 @endsection
 
+@section('profile')
+@if($user->person->person_avatar != null)
+{{ asset('storage/avatar/' . $user->person->person_avatar  )}}
+@else
+{{ asset('img/profile.jpg') }}
+@endif
+@endsection
+
 @section('content')
 <div class="content-item">
 
@@ -31,10 +39,6 @@
     <form method="POST" action="{{route('admin.update.admin.person', $user->person_id)}}">
         @method('put')
         @csrf
-        <div class="mb-3">
-            <label for="avatar" class="form-label">Foto</label>
-            <input type="text" class="form-control" id="avatar" name="person_avatar" value="{{$user->person->person_avatar}}">
-        </div>
         <div class="mb-3">
             <label for="name" class="form-label">Nama Lengkap</label>
             <input type="text" class="form-control" id="name" name="person_name" value="{{$user->person->person_name}}">

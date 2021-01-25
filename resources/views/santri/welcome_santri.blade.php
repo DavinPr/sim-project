@@ -2,11 +2,26 @@
 
 
 @section('title','Sistem Pembayaran Pondok Pesantren')
+@section('name')
+{{ $user->person->person_name }}
+@endsection
+
+@section('profile')
+@if($user->person->person_avatar != null)
+{{ asset('storage/avatar/' . $user->person->person_avatar  )}}
+@else
+{{ asset('img/profile.jpg') }}
+@endif
+@endsection
 
 @section('content')
 
 <h2>Beranda</h2>
 <div class="item">
+    <a class="itemlist" href="{{ route('santri.show_all') }}">
+        <span class="icon fas fa-file-invoice"></span>
+        Data Santri
+    </a>
     <a class="itemlist" href="{{ route('santri.show.bill') }}">
         <span class="icon fas fa-file-invoice"></span>
         Tagihan
@@ -24,14 +39,12 @@
                     <th scope="col">Keterangan</th>
                     <th scope="col">Jumlah</th>
                     <th scope="col">Status</th>
-
-
                 </tr>
             </thead>
             <tbody>
                 @foreach($student->transactions->take(3) as $transaction)
                 <tr>
-                    <th scope="row">{{$transaction->transaction_invoice}}</th>
+                    <th scope="row"><a href="{{ route('santri.transaksi.detail', $transaction) }}">{{$transaction->transaction_invoice}}</th>
                     <td>{{$transaction->created_at}}</td>
                     <td>{{$transaction->transaction_category}}</td>
                     <td>{{$transaction->transaction_fee}}</td>

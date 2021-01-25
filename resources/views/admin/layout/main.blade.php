@@ -20,7 +20,7 @@
             <div class="header">
                 <div class="user container">
                     <div class="user__profile">
-                        <img src="{{ asset('img/profile.jpg') }}" alt="Profile User" class="img-fluid">
+                        <img src="@yield('profile')" alt="Profile User" class="img-fluid">
                         <p class='nav nav-p'> Halo, @yield('name')</p>
                     </div>
                     <div class="user__menu">
@@ -99,4 +99,5 @@
         </div>
     </div>
 </body>
+
 </html>

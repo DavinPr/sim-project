@@ -20,7 +20,7 @@ class BillController extends Controller
         $bills = Bill::where('student_id', $user->person->student->id)
             ->where('bill_status', 'Belum dibayar')
             ->get();
-        return view('santri.tagihan', compact(['bills']));
+        return view('santri.tagihan', compact(['bills', 'user']));
     }
 
     /**

@@ -10,8 +10,9 @@ class PagesController extends Controller
 {
     public function santri_home()
     {
+        $user = Auth::user();
         $student = Auth::user()->person->student;
-        return view('santri.welcome_santri', compact(['student']));
+        return view('santri.welcome_santri', compact(['student', 'user']));
     }
 
     public function admin_home()
@@ -24,12 +25,12 @@ class PagesController extends Controller
     public function admin_add_santri()
     {
         $user = Auth::user();
-        return view('admin.add_data_santri_example', compact('user'));
+        return view('admin.add_data_santri', compact('user'));
     }
 
     public function admin_add_admin()
     {
         $user = Auth::user();
-        return view('admin.add_data_admin_example', compact('user'));
+        return view('admin.add_data_admin', compact('user'));
     }
 }

@@ -36,12 +36,16 @@ class TransactionController extends Controller
     public function create(Bill $bill)
     {
         $user_auth = Auth::user();
-
         return view('santri.pembayaran', compact("user_auth", 'bill'));
     }
 
-
-    public function store(Request $request, Bill $bill)
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Bill $bill, Request $request)
     {
         //Validation
 
@@ -68,8 +72,10 @@ class TransactionController extends Controller
             'transaction_proof' => $img_name,
             'transaction_status' => 'Belum diverifikasi'
         ]);
+
+
         $student->transactions()->save($transaction);
-        return redirect(route('santri.pembayaran'))->with('status', 'Pembayaran berhasil diajukan!');
+        return redirect(route('santri.pembayaran', $bill))->with('status', 'Pembayaran berhasil diajukan!');
     }
 
     /**
@@ -81,7 +87,10 @@ class TransactionController extends Controller
     public function show(Transaction $transaction)
     {
         $user = Auth::user();
-        return view('admin.detail_transaksi', compact(['transaction', 'user']));
+        if ($user->is_admin == 1) {
+            return view('admin.detail_transaksi', compact(['transaction', 'user']));
+        }
+        return view('santri.detail_transaksi', compact(['transaction', 'user']));
     }
 
     /**

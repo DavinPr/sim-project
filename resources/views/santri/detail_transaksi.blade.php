@@ -1,4 +1,4 @@
-@extends('admin/layout/main')
+@extends('santri/layout/main')
 
 
 @section('title','Detail Transaksi')
@@ -36,13 +36,6 @@
     <p> <b>Bukti Transaksi</b> = <img src="{{ asset('storage/proof/' . $transaction->transaction_proof) }}" alt="" width="200"></p>
     <br>
     <br>
-    <form action="{{route('admin.transaksi.update', $transaction)}}" method="post">
-        @method('put')
-        @csrf
-        <button type="submit" class="btn btn-success" name="verification" value="Terverifikasi">Terima</button>
-        <button type="submit" class="btn btn-danger" name="verification" value="Ditolak">Tolak</button>
-    </form>
-
 </div>
 
 @endsection

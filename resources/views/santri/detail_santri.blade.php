@@ -1,8 +1,16 @@
-@extends('admin/layout/main')
+@extends('santri/layout/main')
 
 @section('title','Detail Santri')
 @section('name')
 {{ $user_auth->person->person_name }}
+@endsection
+
+@section('profile')
+@if($user_auth->person->person_avatar != null)
+{{ asset('storage/avatar/' . $user_auth->person->person_avatar  )}}
+@else
+{{ asset('img/profile.jpg') }}
+@endif
 @endsection
 
 @section('content')
@@ -20,13 +28,6 @@
         <!-- Accessing table user from table student -->
         <li class="list-group-item">Username = {{$student->person->user->username}}</li>
         <li class="list-group-item">Password = {{$student->person->user->password}}</li>
-        <li class="list-group-item">
-            <form action="{{route('admin.santri.as.admin', $student->person->user->id)}}" method="POST">
-                @method('put')
-                @csrf
-                <button type="submit">Change as admin</button>
-            </form>
-        </li>
     </ul>
 </div>
 @endsection

@@ -3,6 +3,18 @@
 
 @section('title','Ajukan Pembayaran')
 
+@section('name')
+{{ $user_auth->person->person_name }}
+@endsection
+
+@section('profile')
+@if($user_auth->person->person_avatar != null)
+{{ asset('storage/avatar/' . $user_auth->person->person_avatar  )}}
+@else
+{{ asset('img/profile.jpg') }}
+@endif
+@endsection
+
 @section('content')
 
 <h2>Pembayaran</h2>

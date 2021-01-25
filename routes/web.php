@@ -130,9 +130,6 @@ Route::group(['middleware' => 'auth'], function () {
     //Route for santri that upload a payment confirmation
     Route::post('santri/pembayaran/{bill}', 'TransactionController@store')->name('santri.pembayaran');
 
-    //Route for santri that upload a payment confirmation
-    Route::get('santri/profile', 'StudentController@profile')->name('santri.profile');
-
     //Route to logout
     Route::get('logout', 'authentication\LoginController@logout')->name('logout');
 

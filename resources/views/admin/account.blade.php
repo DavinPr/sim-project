@@ -6,6 +6,14 @@
 {{ $user->person->person_name }}
 @endsection
 
+@section('profile')
+@if($user->person->person_avatar != null)
+{{ asset('storage/avatar/' . $user->person->person_avatar  )}}
+@else
+{{ asset('img/profile.jpg') }}
+@endif
+@endsection
+
 @section('content')
 <section class="account">
   <h2>Form Buat Akun</h2>

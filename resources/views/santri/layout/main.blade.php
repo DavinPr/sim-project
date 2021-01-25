@@ -17,20 +17,46 @@
 </head>
 
 <body>
-
-
     <div class="container-fluid wrapper">
         <div class="row">
-            <div class="col-3 sidebar">
-                <div class="container">
-                    <div class="logo d-flex justify-content-center">
-                        <img src="/img/logo.png" alt="" srcset="">
+            <div class="header">
+                <div class="user container">
+                    <div class="user__profile">
+                        <img src="{{ asset('img/profile.jpg') }}" alt="Profile User" class="img-fluid">
+                        <p class='nav nav-p'> Halo, </p>
+                    </div>
+                    <div class="user__menu">
+                        <ul class="nav nav-top">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">
+                                    <span class="nav-icon fas fa-bell"></span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <span class="nav-icon fas fa-cog"></span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('logout')}}"><span class="nav-icon fas fa-sign-out-alt"></span></a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
+                <div class="container">
+                    <div class="logo d-flex justify-content-center">
+                        <img src="{{ asset('img/logo.png') }}" alt="" srcset="">
+                    </div>
+                    <center>
+                        <div class="title">Sistem Pembayaran</span>
+                            <div class="title">Pondok Pesantren Al-Munawwir Komplek L</div>
+                    </center>
+                </div>
+            </div>
 
+            <div class="col-3 sidebar">
                 <div class="container">
                     <div class="menus">
-
                         <ul class="menus-block">
                             <li>
                                 <a class="menu-link" href="{{route('santri.homepage')}}">
@@ -50,62 +76,24 @@
                                     Transaksi
                                 </a>
                             </li>
-
-
                             <li>
                                 <a class="menu-link" href="#">
                                     <span class="icon fas fa-file-alt"></span>
                                     Laporan
                                 </a>
                             </li>
-
-
-
                         </ul>
-
                     </div>
                 </div>
             </div>
 
-
             <div class="col-9 main-wrapper">
-                <div class="container">
-                    <p class='nav justify-content-end nav-p'> Halo, </p>
-                    <ul class="nav justify-content-end nav-top">
-
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">
-                                <span class="nav-icon fas fa-bell"></span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span class="nav-icon fas fa-cog"></span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('logout')}}"><span class="nav-icon fas fa-sign-out-alt"></span></a>
-
-                        </li>
-
-                    </ul>
-                </div>
-
                 <div class="container content">
                     @yield('content')
                 </div>
-
-
             </div>
-
         </div>
-
     </div>
-
-    </div>
-    </div>
-
 </body>
 
 </html>

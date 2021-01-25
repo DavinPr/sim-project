@@ -244,24 +244,58 @@ tr:hover {
 }
 
 /* CSS Account */
-.account__image {
+.account .account__image {
     display: flex;
 }
 
-.account__image img {
+.account .account__image img {
     max-width: 120px;
     border-radius: 15px;
 }
 
-.account__image button {
+.account .account__image button {
     max-width: 120px;
     margin: 10px 0;
 }
 
-.account label {
+.account .account label {
     font-weight: 500;
 }
 
-.account__container__content {
+.account .account__container__content {
     margin: 15px 0;
+}
+
+/* HEADER USER */
+.user .user__profile {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.user .user__profile img {
+    border-radius: 50%;
+    max-width: 60px;
+}
+
+.user .user__profile p {
+    color: white;
+    font-size: 20px;
+    margin: 0;
+    margin-left: 10px;
+}
+
+.user .user__menu {
+    margin-top: 10px;
+}
+
+.user .user__menu ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.user .user__menu li {
+    margin-left: 10px;
 }

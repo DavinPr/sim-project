@@ -88,6 +88,9 @@ Route::group([
 
     //Route to logout
     Route::get('logout', 'authentication\LoginController@logout')->name('logout');
+
+    //Route to account
+    Route::get('admin/account/detail', 'AccountController@index')->name('admin.account.detail');
 });
 
 

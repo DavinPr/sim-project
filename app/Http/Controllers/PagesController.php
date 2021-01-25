@@ -11,23 +11,25 @@ class PagesController extends Controller
     public function santri_home()
     {
         $student = Auth::user()->person->student;
-        return view('santri.welcome_santri', compact('student'));
+        return view('santri.welcome_santri', compact(['student']));
     }
 
     public function admin_home()
     {
-        $admin = Auth::user()->person;
+        $user = Auth::user();
         $transactions = Transaction::where('transaction_status', 'Belum diverifikasi')->get();
-        return view('admin.welcome_admin', compact(['admin', 'transactions']));
+        return view('admin.welcome_admin', compact(['user', 'transactions']));
     }
 
     public function admin_add_santri()
     {
-        return view('admin.add_data_santri_example');
+        $user = Auth::user();
+        return view('admin.add_data_santri_example', compact('user'));
     }
 
     public function admin_add_admin()
     {
-        return view('admin.add_data_admin_example');
+        $user = Auth::user();
+        return view('admin.add_data_admin_example', compact('user'));
     }
 }

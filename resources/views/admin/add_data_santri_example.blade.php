@@ -1,9 +1,10 @@
-
-
 @extends('admin/layout/main')
 
 
 @section('title','Tambahkan Santri')
+@section('name')
+{{ $user->person->person_name }}
+@endsection
 
 @section('content')
 <div class="content-item">
@@ -30,7 +31,7 @@
             <input type="text" class="form-control" id="birthplace" name="person_birthplace">
         </div>
         <div class="mb-3">
-        <label for="gender" class="form-label">Jenis Kelamin</label>
+            <label for="gender" class="form-label">Jenis Kelamin</label>
             <br>
             <input type="radio" id="male" name="person_gender" value="Laki-laki">
             <label for="male">Laki-laki</label><br>
@@ -39,7 +40,7 @@
         </div>
         <div class="mb-3">
             <label for="avatar" class="form-label">Avatar</label>
-            <input type="text" class="form-control" id="avatar" name="person_avatar">
+            <input type="file" class="form-control" id="avatar" name="person_avatar">
         </div>
         <div class="mb-3">
             <label for="spp" class="form-label">SPP</label>
@@ -51,5 +52,3 @@
     </form>
 </div>
 @endsection
-
-

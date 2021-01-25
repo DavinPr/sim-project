@@ -16,13 +16,15 @@ class TransactionController extends Controller
     public function index()
     {
         $transactions = Auth::user()->person->student->transactions;
-        return view('santri.show_data_transaksi', compact('transactions'));
+        $user = Auth::user();
+        return view('santri.show_data_transaksi', compact(['transactions', 'user']));
     }
 
     public function indexAdmin()
     {
         $transactions = Transaction::where('transaction_status', 'Belum diverifikasi')->get();
-        return view('admin.show_data_transaksi', compact('transactions'));
+        $user = Auth::user();
+        return view('admin.show_data_transaksi', compact(['transactions', 'user']));
     }
 
     /**
@@ -81,7 +83,8 @@ class TransactionController extends Controller
      */
     public function show(Transaction $transaction)
     {
-        return view('admin.detail_transaksi', compact('transaction'));
+        $user = Auth::user();
+        return view('admin.detail_transaksi', compact(['transaction', 'user']));
     }
 
     /**

@@ -108,7 +108,8 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        return view('admin.update_data_santri_example', compact('student'));
+        $user = Auth::user();
+        return view('admin.update_data_santri_example', compact(['student', 'user']));
     }
 
     /**

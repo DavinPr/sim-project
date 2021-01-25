@@ -1,9 +1,10 @@
-
-
 @extends('admin/layout/main')
 
 
 @section('title','Detail Transaksi')
+@section('name')
+{{ $user->person->person_name }}
+@endsection
 
 @section('content')
 
@@ -37,4 +38,3 @@
 </div>
 
 @endsection
-

@@ -9,8 +9,7 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/main.css">
     <script src="https://kit.fontawesome.com/543ccfb2d9.js" crossorigin="anonymous"></script>
 
@@ -24,7 +23,7 @@
         <div class="row">
             <div class="header">
                 <div class="container">
-                    <p class='nav justify-content-end nav-p'> Halo, </p>
+                    <p class='nav justify-content-end nav-p'> Halo, @yield('name')</p>
                     <ul class="nav justify-content-end nav-top">
 
                         <li class="nav-item">
@@ -47,18 +46,18 @@
                 </div>
                 <div class="container">
                     <div class="logo d-flex justify-content-center">
-                        <img src="/img/logo.png" alt="" srcset=""> 
-                       
+                        <img src="/img/logo.png" alt="" srcset="">
+
                     </div>
-                    <center> 
+                    <center>
                         <div class="title">Sistem Pembayaran</span>
-                        <div class="title">Pondok Pesantren Al-Munawwir Komplek L</div>
+                            <div class="title">Pondok Pesantren Al-Munawwir Komplek L</div>
                     </center>
-                   
+
                 </div>
             </div>
             <div class="col-3 sidebar">
-                
+
 
                 <div class="container">
                     <div class="menus">
@@ -107,7 +106,7 @@
 
 
             <div class="col-9 main-wrapper">
-                
+
 
                 <div class="container content">
                     @yield('content')

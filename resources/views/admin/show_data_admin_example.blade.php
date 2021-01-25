@@ -1,8 +1,10 @@
-
 @extends('admin/layout/main')
 
 
 @section('title','Data Admin')
+@section('name')
+{{ $user->person->person_name }}
+@endsection
 
 @section('content')
 
@@ -28,10 +30,10 @@
                 <th scope="row">{{ $loop->iteration }}</th>
                 <td><a href="{{route('admin.detail.admin', $admin->id)}}">{{$admin->username}}</a></td>
                 <td>{{$admin->person->person_name}}</td>
-               
+
                 <td><a href="{{route('admin.detail.admin', $admin->id)}}"> <i class="icon fas fa-info-circle"></i></a></td>
                 <td><a href="{{route('admin.edit.admin', $admin->id)}}"> <i class="icon fas fa-edit"></i></a></td>
-    
+
                 <td>
                     <form action="/admin/{{$admin->person_id}}" method="POST">
                         @method('delete')
@@ -48,8 +50,3 @@
 </div>
 
 @endsection
-
-
-
-
-

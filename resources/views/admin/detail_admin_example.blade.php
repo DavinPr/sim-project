@@ -1,8 +1,9 @@
-
 @extends('admin/layout/main')
 
-
 @section('title','Detail Admin')
+@section('name')
+{{ $user_auth->person->person_name }}
+@endsection
 
 @section('content')
 <div class="content-item">
@@ -19,4 +20,3 @@
     </ul>
 </div>
 @endsection
-

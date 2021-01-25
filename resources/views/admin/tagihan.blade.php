@@ -1,11 +1,16 @@
-@extends('santri/layout/main')
+@extends('admin/layout/main')
 
 
-@section('title','Ajukan Pembayaran')
+@section('title','Sistem Pembayaran Pondok Pesantren')
+@section('name')
+{{ $user->person->person_name }}
+@endsection
+
+
 
 @section('content')
 
-<h2>Pembayaran</h2>
+<h2>Buat Tagihan</h2>
 <div class="content-item">
     @if (session('status'))
     <div class="alert alert-success">
@@ -13,7 +18,7 @@
     </div>
     @endif
 
-    <form method="POST" action="{{ route('santri.pembayaran', $user_auth->person->student->id) }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('admin.push.bill') }}">
         @csrf
         <div class="mb-3">
             <label for="fee" class="form-label">Jumlah Nominal</label>
@@ -32,16 +37,10 @@
             </div>
         </div>
         <div class="mb-3">
-            <label for="proof">Upload Bukti Pembayaran</label>
-            <br>
-            <input type="file" id="proof" name="proof" accept="image/png, image/jpeg">
-
-        </div>
-
-        <div class="mb-3">
             <button type="submit" class="btn btn-primary">Kirim</button>
         </div>
     </form>
 
 </div>
+
 @endsection

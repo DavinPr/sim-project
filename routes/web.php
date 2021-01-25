@@ -86,6 +86,12 @@ Route::group([
     //Route to update verification status
     Route::put('admin/transaksi/update/{transaction}', 'TransactionController@update')->name('admin.transaksi.update');
 
+    //Route to Bill Page
+    Route::get('admin/transaksi/tagihan', 'BillController@index')->name('admin.add.bill');
+
+    //Route to Bill Page
+    Route::post('admin/transaksi/tagihan', 'BillController@store')->name('admin.push.bill');
+
     //Route to logout
     Route::get('logout', 'authentication\LoginController@logout')->name('logout');
 });

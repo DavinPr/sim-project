@@ -1,9 +1,10 @@
-
-
 @extends('admin/layout/main')
 
 
 @section('title','Edit Data')
+@section('name')
+{{ $user->person->person_name }}
+@endsection
 
 @section('content')
 <div class="content-item">
@@ -56,5 +57,3 @@
     </form>
 </div>
 @endsection
-
-

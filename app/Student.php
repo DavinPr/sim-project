@@ -17,4 +17,9 @@ class Student extends Model
     {
         return $this->hasMany('App\Transaction');
     }
+
+    public function bill()
+    {
+        return $this->hasMany('App\Bill');
+    }
 }

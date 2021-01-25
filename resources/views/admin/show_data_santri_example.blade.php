@@ -1,9 +1,10 @@
-
-
 @extends('admin/layout/main')
 
 
 @section('title','Data Santri')
+@section('name')
+{{ $user_auth->person->person_name }}
+@endsection
 
 @section('content')
 
@@ -22,7 +23,7 @@
                 <th scope="col">Gender</th>
                 <th scope="col">SPP</th>
                 <th colspan="3"></th>
-                
+
             </tr>
         </thead>
         <tbody>
@@ -35,7 +36,7 @@
                 <td>{{$student->spp}}</td>
                 <td><a href="{{route('admin.detail.santri', $student->id)}}"> <i class="icon fas fa-info-circle"></i></a></td>
                 <td><a href="{{route('admin.edit.santri', $student->id)}}"> <i class="icon fas fa-edit"></i></a></td>
-    
+
                 <td>
                     <form action="/santri/{{$student->id}}" method="POST">
                         @method('delete')
@@ -55,4 +56,3 @@
 </div>
 
 @endsection
-

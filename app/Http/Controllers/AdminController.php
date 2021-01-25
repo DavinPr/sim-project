@@ -28,7 +28,8 @@ class AdminController extends Controller
     public function index()
     {
         $admins = User::where('is_admin', 1)->get();
-        return view('admin.show_data_admin_example', compact('admins'));
+        $user = Auth::user();
+        return view('admin.show_data_admin_example', compact(['admins', 'user']));
     }
 
     /**
@@ -94,7 +95,8 @@ class AdminController extends Controller
     public function show($id)
     {
         $user = User::where('id', $id)->first();
-        return view('admin.detail_admin_example', compact('user'));
+        $user_auth = Auth::user();
+        return view('admin.detail_admin_example', compact(['user', 'user_auth']));
     }
 
     /**

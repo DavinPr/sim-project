@@ -6,7 +6,6 @@ use App\Bill;
 use App\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use PHPUnit\Framework\MockObject\Builder\Stub;
 
 class BillController extends Controller
 {
@@ -17,6 +16,11 @@ class BillController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
+        $bills = Bill::where('student_id', $user->person->student->id)
+            ->where('bill_status', 'Belum dibayar')
+            ->get();
+        return view('santri.tagihan', compact(['bills']));
     }
 
     /**
@@ -60,6 +64,13 @@ class BillController extends Controller
             $student->bill()->save($bill);
         }
         return redirect(route('admin.add.bill'))->with('status', 'Tagihan berhasil dikirim!');
+    }
+
+    public function report()
+    {
+        $user = Auth::user();
+        $students = Student::all();
+        return view('admin.laporan', compact(['user', 'students']));
     }
 
     /**

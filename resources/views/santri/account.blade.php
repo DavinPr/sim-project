@@ -1,4 +1,4 @@
-@extends('admin/layout/main')
+@extends('santri/layout/main')
 
 
 @section('title','Buat Akun')

@@ -90,7 +90,7 @@
                             </li>
 
                             <li>
-                                <a class="menu-link" href="#">
+                                <a class="menu-link" href="{{route('admin.laporan.pembayaran')}}">
                                     <span class="icon fas fa-file-alt"></span>
                                     Laporan
                                 </a>

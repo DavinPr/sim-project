@@ -87,16 +87,19 @@ Route::group([
     Route::put('admin/transaksi/update/{transaction}', 'TransactionController@update')->name('admin.transaksi.update');
 
     //Route to Bill Page
-    Route::get('admin/transaksi/tagihan', 'BillController@index')->name('admin.add.bill');
+    Route::get('admin/transaksi/tagihan', 'BillController@create')->name('admin.add.bill');
 
     //Route to Bill Page
     Route::post('admin/transaksi/tagihan', 'BillController@store')->name('admin.push.bill');
+
+    //Laporan Pembayaran
+    Route::get('admin/laporan', 'BillController@report')->name('admin.laporan.pembayaran');
 
     //Route to logout
     Route::get('logout', 'authentication\LoginController@logout')->name('logout');
 
     //Route to account
-    Route::get('admin/account/detail', 'AccountController@index')->name('admin.account.detail');
+    Route::get('admin/account/detail', 'AccountController@adminIndex')->name('admin.account.detail');
 });
 
 
@@ -129,4 +132,10 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Route to logout
     Route::get('logout', 'authentication\LoginController@logout')->name('logout');
+
+    //Route to account
+    Route::get('santri/account/detail', 'AccountController@santriIndex')->name('santri.account.detail');
+
+    //Route to Bill Page
+    Route::get('santri/transaksi/tagihan', 'BillController@index')->name('santri.show.bill');
 });

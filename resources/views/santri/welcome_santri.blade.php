@@ -19,7 +19,7 @@
 <h2>Beranda</h2>
 <div class="item">
     <a class="itemlist" href="{{ route('santri.show_all') }}">
-        <span class="icon fas fa-file-invoice"></span>
+        <span class="icon fas fa-user"></span>
         Data Santri
     </a>
     <a class="itemlist" href="{{ route('santri.show.bill') }}">

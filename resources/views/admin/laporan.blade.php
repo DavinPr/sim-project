@@ -38,7 +38,11 @@
                 <th scope="row">{{ $loop->iteration }}</th>
                 <td>{{$student->nis}}</td>
                 <td>{{$student->person->person_name}}</td>
-                <td>Lihat</td>
+                <td>
+                    <a href="{{route('admin.laporan.pembayaran.detail', $student)}}">
+                        <button class="btn btn-success">Lihat</button>
+                    </a>
+                </td>
             </tr>
             @endforeach
         </tbody>

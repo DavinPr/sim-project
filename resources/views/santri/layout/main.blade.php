@@ -22,7 +22,7 @@
             <div class="header">
                 <div class="user container">
                     <div class="user__profile">
-                        <img src="@yield('profile')" alt="Profile User" class="img-fluid">
+                        <img src="@yield('profile')" alt="Profile User" class="img-fluid img-size">
                         <p class='nav nav-p'> Halo, @yield('name')</p>
                     </div>
                     <div class="user__menu">
@@ -77,7 +77,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="menu-link" href="#">
+                                <a class="menu-link" href="{{route('laporan.tagihan')}}">
                                     <span class="icon fas fa-file-alt"></span>
                                     Laporan
                                 </a>

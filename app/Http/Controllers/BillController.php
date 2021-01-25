@@ -66,11 +66,25 @@ class BillController extends Controller
         return redirect(route('admin.add.bill'))->with('status', 'Tagihan berhasil dikirim!');
     }
 
-    public function report()
+    public function adminReport()
     {
         $user = Auth::user();
         $students = Student::all();
         return view('admin.laporan', compact(['user', 'students']));
+    }
+
+    public function adminReportDetail(Student $student)
+    {
+        $user = Auth::user();
+        $bills = Bill::where('student_id', $student->id)->get();
+        return view('admin.laporan_detail', compact(['user', 'bills']));
+    }
+
+    public function santriReport()
+    {
+        $user = Auth::user();
+        $bills = Bill::where('student_id', $user->person->student->id)->get();
+        return view('santri.laporan', compact(['user', 'bills']));
     }
 
     /**

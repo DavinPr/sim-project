@@ -71,7 +71,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="menu-link" href="#">
+                                <a class="menu-link" href="{{ route('admin.account.detail') }}">
                                     <span class="icon fas fa-user-circle"></span>
                                     Akun
                                 </a>

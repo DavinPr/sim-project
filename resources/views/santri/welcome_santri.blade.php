@@ -42,7 +42,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($student->transactions->take(3) as $transaction)
+                @foreach($transactions->take(3) as $transaction)
                 <tr>
                     <th scope="row"><a href="{{ route('santri.transaksi.detail', $transaction) }}">{{$transaction->transaction_invoice}}</th>
                     <td>{{$transaction->created_at}}</td>

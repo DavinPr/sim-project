@@ -14,27 +14,36 @@
 @endsection
 
 @section('content')
-<div class="content-item">
-    <ul class="list-group">
-        <li class="list-group-item">NIS = {{$student->nis}}</li>
-        <li class="list-group-item">SPP = {{$student->spp}}</li>
-
-        <!-- Accessing table person from table student -->
-        <li class="list-group-item">Nama = {{$student->person->person_name}}</li>
-        <li class="list-group-item">Tanggal lahir = {{$student->person->person_birthdate}}</li>
-        <li class="list-group-item">Tempat lahir = {{$student->person->person_birthplace}}</li>
-        <li class="list-group-item">Jenis Kelamin = {{$student->person->person_gender}}</li>
-
-        <!-- Accessing table user from table student -->
-        <li class="list-group-item">Username = {{$student->person->user->username}}</li>
-        <li class="list-group-item">Password = {{$student->person->user->password}}</li>
-        <li class="list-group-item">
-            <form action="{{route('admin.santri.as.admin', $student->person->user->id)}}" method="POST">
-                @method('put')
-                @csrf
-                <button type="submit">Change as admin</button>
-            </form>
-        </li>
-    </ul>
-</div>
+<section class="account">
+    <h2>Data pribadi santri</h2>
+    <div class="card">
+        <div class="card-body">
+            <div class="account__image">
+                <img src="@if($student->person->person_avatar == null)
+                      {{ asset('img/insert-image.png') }}
+                      @else
+                      {{ asset('storage/avatar/'  . $student->person->person_avatar) }}
+                      @endif" alt="Foto Diri" class="img-fluid">
+                <div class="mt-3 ms-3">
+                    <h5 class="card-title">{{$student->person->person_name}}</h5>
+                    <p class="card-text">{{$student->nis}}</p>
+                </div>
+            </div>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <h5>Tempat Lahir</h5>
+                <p class="ms-3">{{$student->person->person_birthplace}}</p>
+            </li>
+            <li class="list-group-item">
+                <h5>Tanggal Lahir Lahir</h5>
+                <p class="ms-3">{{$student->person->person_birthdate}}</p>
+            </li>
+            <li class="list-group-item">
+                <h5>Jenis Kelamin</h5>
+                <p class="ms-3">{{$student->person->person_gender}}</p>
+            </li>
+        </ul>
+    </div>
+</section>
 @endsection

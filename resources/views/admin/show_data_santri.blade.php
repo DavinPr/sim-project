@@ -30,7 +30,8 @@
                 <th scope="col">Nama</th>
                 <th scope="col">Gender</th>
                 <th scope="col">SPP</th>
-                <th colspan="3"></th>
+                <th scope="col" class="text-center">Update</th>
+                <th scope="col" class="text-center">Delete</th>
 
             </tr>
         </thead>
@@ -39,13 +40,12 @@
             <tr>
                 <th scope="row">{{ $loop->iteration }}</th>
                 <td>{{$student->nis}}</td>
-                <td>{{$student->person->person_name}}</td>
+                <td><a href="{{route('admin.detail.santri', $student->id)}}">{{$student->person->person_name}}</a></td>
                 <td>{{$student->person->person_gender}}</td>
                 <td>{{$student->spp}}</td>
-                <td><a href="{{route('admin.detail.santri', $student->id)}}"> <i class="icon fas fa-info-circle"></i></a></td>
-                <td><a href="{{route('admin.edit.santri', $student->id)}}"> <i class="icon fas fa-edit"></i></a></td>
+                <td class="text-center"><a href="{{route('admin.edit.santri', $student->id)}}"> <i class="icon fas fa-edit"></i></a></td>
 
-                <td>
+                <td class="text-center">
                     <form action="/santri/{{$student->id}}" method="POST">
                         @method('delete')
                         @csrf

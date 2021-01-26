@@ -174,7 +174,7 @@ class AdminController extends Controller
     public function verifikasi()
     {
         $user = Auth::user();
-        $transactions = Transaction::where('admin_id', $user->person->admin->id)->get();
+        $transactions = Transaction::where('admin_id', $user->person->admin->id)->orderBy('created_at', 'desc')->get();
         return view('admin.verifikasi', compact(['transactions', 'user']));
     }
 }

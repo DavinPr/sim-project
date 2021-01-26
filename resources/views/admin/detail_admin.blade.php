@@ -14,17 +14,36 @@
 @endsection
 
 @section('content')
-<div class="content-item">
-    <ul class="list-group">
-        <!-- Accessing table person from table student -->
-        <li class="list-group-item">Nama = {{$user->person->person_name}}</li>
-        <li class="list-group-item">Tanggal lahir = {{$user->person->person_birthdate}}</li>
-        <li class="list-group-item">Tempat lahir = {{$user->person->person_birthplace}}</li>
-        <li class="list-group-item">Jenis Kelamin = {{$user->person->person_gender}}</li>
-
-        <!-- Accessing table user from table student -->
-        <li class="list-group-item">Username = {{$user->username}}</li>
-        <li class="list-group-item">Password = {{$user->password}}</li>
-    </ul>
-</div>
+<section class="account">
+    <h2>Data pribadi santri</h2>
+    <div class="card">
+        <div class="card-body">
+            <div class="account__image">
+                <img src="@if($user->person->person_avatar == null)
+                      {{ asset('img/insert-image.png') }}
+                      @else
+                      {{ asset('storage/avatar/'  . $user->person->person_avatar) }}
+                      @endif" alt="Foto Diri" class="img-fluid">
+                <div class="mt-3 ms-3">
+                    <h5 class="card-title">{{$user->person->person_name}}</h5>
+                    <p class="card-text">{{$user->nis}}</p>
+                </div>
+            </div>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <h5>Tempat Lahir</h5>
+                <p class="ms-3">{{$user->person->person_birthplace}}</p>
+            </li>
+            <li class="list-group-item">
+                <h5>Tanggal Lahir Lahir</h5>
+                <p class="ms-3">{{$user->person->person_birthdate}}</p>
+            </li>
+            <li class="list-group-item">
+                <h5>Jenis Kelamin</h5>
+                <p class="ms-3">{{$user->person->person_gender}}</p>
+            </li>
+        </ul>
+    </div>
+</section>
 @endsection

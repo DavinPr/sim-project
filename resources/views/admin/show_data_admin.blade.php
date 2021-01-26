@@ -28,7 +28,8 @@
                 <th scope="col">No</th>
                 <th scope="col">Username</th>
                 <th scope="col">Nama</th>
-                <th colspan="3"></th>
+                <th scope="col" class="text-center">Update</th>
+                <th scope="col" class="text-center">Delete</th>
 
             </tr>
         </thead>
@@ -38,11 +39,9 @@
                 <th scope="row">{{ $loop->iteration }}</th>
                 <td><a href="{{route('admin.detail.admin', $admin->id)}}">{{$admin->username}}</a></td>
                 <td>{{$admin->person->person_name}}</td>
+                <td class="text-center"><a href="{{route('admin.edit.admin', $admin->id)}}"> <i class="icon fas fa-edit"></i></a></td>
 
-                <td><a href="{{route('admin.detail.admin', $admin->id)}}"> <i class="icon fas fa-info-circle"></i></a></td>
-                <td><a href="{{route('admin.edit.admin', $admin->id)}}"> <i class="icon fas fa-edit"></i></a></td>
-
-                <td>
+                <td class="text-center">
                     <form action="/admin/{{$admin->person_id}}" method="POST">
                         @method('delete')
                         @csrf

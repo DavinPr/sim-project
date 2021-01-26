@@ -12,13 +12,14 @@ class PagesController extends Controller
     {
         $user = Auth::user();
         $student = Auth::user()->person->student;
-        return view('santri.welcome_santri', compact(['student', 'user']));
+        $transactions = Transaction::where('student_id', $user->person->student->id)->orderBy('created_at', 'desc')->get();
+        return view('santri.welcome_santri', compact(['student', 'user', 'transactions']));
     }
 
     public function admin_home()
     {
         $user = Auth::user();
-        $transactions = Transaction::where('transaction_status', 'Belum diverifikasi')->get();
+        $transactions = Transaction::where('transaction_status', 'Belum diverifikasi')->orderBy('created_at', 'desc')->get();
         return view('admin.welcome_admin', compact(['user', 'transactions']));
     }
 

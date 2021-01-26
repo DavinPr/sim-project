@@ -16,14 +16,14 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        $transactions = Auth::user()->person->student->transactions;
         $user = Auth::user();
+        $transactions = Transaction::where('student_id', $user->person->student->id)->orderBy('created_at', 'desc')->get();
         return view('santri.show_data_transaksi', compact(['transactions', 'user']));
     }
 
     public function indexAdmin()
     {
-        $transactions = Transaction::where('transaction_status', 'Belum diverifikasi')->get();
+        $transactions = Transaction::where('transaction_status', 'Belum diverifikasi')->orderBy('created_at', 'desc')->get();
         $user = Auth::user();
         return view('admin.show_data_transaksi', compact(['transactions', 'user']));
     }
